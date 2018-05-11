@@ -83,17 +83,6 @@ $(document).ready(function() {
     });
   }
 
-  // function storeLocal(page) {
-  //   localStorage.clear();
-  //   $.get("/api/commander").then(function(results) {
-  //     localStorage.setItem("mtgCommanders", JSON.stringify(results));
-  //     $.get("/api/league_data").then(function(data) {
-  //       localStorage.setItem("data", JSON.stringify(data));
-  //       window.location.replace(page);
-  //     });
-  //   });
-  // };
-
 });
 
 

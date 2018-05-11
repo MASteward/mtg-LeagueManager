@@ -9,9 +9,9 @@ $(document).ready(function() {
   var pendingDelete;
 
   getLeague();
-// =============================================================================
+//==============================================================================
 //                                  PAGE LAYOUT
-// =============================================================================
+//==============================================================================
   function getLeague() {
     $.get("/api/league_info").then(function(data) {
         leagueData = data;
@@ -19,7 +19,7 @@ $(document).ready(function() {
     });
   }
 
-  // =================== LEAGUE NAME ======================
+//============================== LEAGUE NAME ===================================
 
   function getLeagueName(data) {
     nameOfLeague = data.leagueName;
@@ -32,7 +32,7 @@ $(document).ready(function() {
     playersList(playerData);
   }
 
-  // ================ RESET & CREATE PLAYERS LIST =================
+//======================= RESET & CREATE PLAYERS LIST ==========================
 
   function playersList(playerInfo) {
     console.log("pendingDelete", pendingDelete);
@@ -44,7 +44,7 @@ $(document).ready(function() {
     });
   }
 
-  // ==================== RESET PLAYER DATA =====================
+//=========================== RESET PLAYER DATA ================================
 
   function resetPlayerData(player) {
     var resetData = {
@@ -62,7 +62,7 @@ $(document).ready(function() {
   }
 
 
-  // ===================== RENDER PLAYER =====================
+//============================= RENDER PLAYER ==================================
 
   function renderPlayer(player) {
     var newRow = $("<div class='row player-list-item'>");
@@ -75,21 +75,21 @@ $(document).ready(function() {
     count++;
   };
 
-  // =================== DYNAMIC CHECKBOX ======================
+//============================ DYNAMIC CHECKBOX ================================
 
   function createCheckbox(row, player) {
     var checkbox = $("<div class='col-1 input-group-prepend div-checkbox'><input type='checkbox' class='input-checkbox playerCheck' data-id="+ player.id +"></div>");
     $(row).append(checkbox);
   }
 
-  // =================== DYNAMIC PLAYERS NAME ===================
+//=========================== DYNAMIC PLAYERS NAME =============================
 
   function listPlayer(row, player) {
     var name = $("<div class='col-4 member player'><h4 class='name-of-player'>"+ player.playerName+ "</h4></div>");
     $(row).append(name);
   }
 
-  // ================ DYNAMIC COMMANDER SELECTOR ================
+//======================== DYNAMIC COMMANDER SELECTOR ==========================
 
   function commandersList(row) {
     var commContainer = $("<div class='col-4 commander'>");
@@ -101,7 +101,7 @@ $(document).ready(function() {
     $(row).append(commContainer);
   }
 
-  // =================== DYNAMIC POINTS COUNTER ===================
+//========================= DYNAMIC POINTS COUNTER =============================
 
   function pointsCounter(row, player) {
     var addPoint = $("<i class='ion-plus-circled'>");
@@ -117,17 +117,19 @@ $(document).ready(function() {
     row.append(deleteDiv);
   }
 
-  // ================= CLICK-EVENT ADD PLAYER ===================
+//======================== CLICK-EVENT ADD PLAYER ==============================
 
   $("#addPlayer").click(function(event) {
     event.preventDefault();
     var newPlayer = $(".playerName-input");
-    if (!newPlayer) {
+    if (newPlayer.val().trim()) {
       preparePlayerInfo(newPlayer)
+    } else {
+      console.log("cannot be blank");
     }
   });
 
-  // ================ PREP PLAYER ADDITION INFO =================
+//====================== PREP PLAYER ADDITION INFO =============================
 
   function preparePlayerInfo(newPlayer) {
     newPlayerObj = {
@@ -141,11 +143,10 @@ $(document).ready(function() {
     addPlayer(newPlayerObj);
   };
 
-  // ================ ADDING PLAYER TO DATABASE =================
+  // ==================== ADDING PLAYER TO DATABASE ============================
 
   function addPlayer(playersData) {
     $.post("/api/player", playersData).then(function(newPlayerData) {
-      console.log("New Player", newPlayerData);
       renderPlayer(newPlayerData);
       checkAll();
     });
@@ -176,7 +177,6 @@ $(document).ready(function() {
         counter++;
       }
     });
-    console.log("allRows", allRows);
 
     if (counter !== allRows && allChecked.prop("checked", true)) {
       // console.log("not all checked");
@@ -191,7 +191,6 @@ $(document).ready(function() {
 
   $(document).on("click", "#startGame",function(event) {
     event.preventDefault();
-    // console.log("Start Click");
     whosePlaying();
   });
 
@@ -208,7 +207,6 @@ $(document).ready(function() {
           "checkedIn": true,
           "commander": theCommander
         };
-        console.log("updatedPlayer", updatedPlayer);
         gamePlayers.push(updatedPlayer);
       }
     })
@@ -230,8 +228,7 @@ $(document).ready(function() {
   function getGamesAndTables(gameSize) {
     var tableAmount = generateTables(gameSize);
     var gameCount = $("#gameSelect").val().trim();
-    // console.log("playerAmount", gameSize);
-    // console.log("gameSelect", gameCount);
+
     var gameData = {
       games: gameCount,
       tables: tableAmount,
@@ -274,7 +271,6 @@ $(document).ready(function() {
   };
 
   function loadGame() {
-    console.log("loaded");
     window.location.replace("/game");
   }
 
@@ -284,7 +280,6 @@ $(document).ready(function() {
   });
 
   $("#delete-modal").on("click", ".delete-player", function() {
-    console.log("ajax", pendingDelete);
     $.ajax({
       method: "DELETE",
       url: "/api/player/" + pendingDelete
