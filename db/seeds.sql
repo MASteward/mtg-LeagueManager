@@ -1,5 +1,3 @@
--- use magicDB;
---
 -- INSERT INTO Commanders (name, source)
 -- VALUES
 -- ("Freya","https://img.scryfall.com/cards/large/en/cma/111.jpg?1519869364"),
