@@ -1,0 +1,44 @@
+-- use magicDB;
+--
+-- INSERT INTO Commanders (name, source)
+-- VALUES
+-- ("Freya","https://img.scryfall.com/cards/large/en/cma/111.jpg?1519869364"),
+-- ("Yahenni","https://img.scryfall.com/cards/large/en/aer/75.jpg?1517813031"),
+-- ("Atraxa","https://img.scryfall.com/cards/large/en/c16/28.jpg?1517813031"),
+-- ("Nekusar","https://img.scryfall.com/cards/large/en/c13/201.jpg?1517813031"),
+-- ("Kaalia","https://img.scryfall.com/cards/large/en/cma/180.jpg?1519870270"),
+-- ("Zur","https://img.scryfall.com/cards/normal/en/mm3/204.jpg?1517813031"),
+-- ("Jhoira","https://img.scryfall.com/cards/normal/en/dds/1.jpg?1517813031"),
+-- ("Leovold","https://img.scryfall.com/cards/normal/en/cn2/77.jpg?1517813031"),
+-- ("Maelstrom Wanderer","https://img.scryfall.com/cards/large/en/pca/101.jpg?1517813031"),
+-- ("Karador","https://img.scryfall.com/cards/large/en/cmd/207.jpg?1517813031"),
+-- ("Derevi","https://img.scryfall.com/cards/large/en/cma/176.jpg?1519870219"),
+-- ("Uril","https://img.scryfall.com/cards/normal/en/arb/124.jpg?1517813031");
+--
+-- INSERT INTO Supplementals (name, source)
+-- VALUES
+-- ("Army of the Faceless", "./images/cards/ArmyOfTheFaceless.png"),
+-- ("Boundless Realms", "./images/cards/BoundlessRealms.png"),
+-- ("Braingeyser", "./images/cards/Braingeyser.png"),
+-- ("Burn It All", "./images/cards/BurnItAll.png"),
+-- ("Crumbling Sanctuary", "./images/cards/CrumblingSanctuary.png"),
+-- ("Earthquake", "./images/cards/Earthquake.png"),
+-- ("Enchanted For Victory", "./images/cards/EnchantedForVictory.png"),
+-- ("Equipped For Battle", "./images/cards/EquippedForBattle.png"),
+-- ("General Death", "./images/cards/GeneralDeath.png"),
+-- ("Healing Hand", "./images/cards/HealingHand.png"),
+-- ("Instant Death", "./images/cards/InstantDeath.png"),
+-- ("Legends Rule", "./images/cards/LegendsRule.png"),
+-- ("Masochist", "./images/cards/Masochist.png"),
+-- ("Necropotence", "./images/cards/Necropotence.png"),
+-- ("Prolific", "./images/cards/Prolific.png"),
+-- ("Resource Management", "./images/cards/ResourceManagement.png"),
+-- ("Sad But True", "./images/cards/SadButTrue.png"),
+-- ("Sharing", "./images/cards/Sharing.png"),
+-- ("Super Friends", "./images/cards/SuperFriends.png"),
+-- ("Survivor", "./images/cards/Survivor.png"),
+-- ("The World Spell", "./images/cards/TheWorldSpell.png"),
+-- ("Third Times The Charm", "./images/cards/ThirdTimesTheCharm.png"),
+-- ("To Mount Doom", "./images/cards/ToMountDoom.png"),
+-- ("Turn Aside", "./images/cards/TurnAside.png"),
+-- ("Twenty-One", "./images/cards/Twenty-One.png");

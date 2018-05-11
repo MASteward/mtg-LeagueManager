@@ -1,0 +1,76 @@
+body {
+  font-family: 'Expletus Sans';
+  background-size: cover;
+  /* background-size: contain; */
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-color: black;
+  color: #fff;
+}
+
+.navbar-dark {
+  background-color: black;
+}
+
+.container {
+  position: relative;
+  top: 65px;
+}
+
+/* ============= MEDIA QUERIES ============= */
+
+@media screen and (max-width: 575.98px) {
+  .create-league {
+    max-width: 100%;
+  }
+
+  .league-player {
+    width: 100%;
+  }
+  .player-input {
+    padding-right: 1px;
+  }
+
+  .league-form {
+    margin-bottom: 40px;
+  }
+
+  #nameLeague {
+    width: 100%;
+    /* margin: 10px 12px; */
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .finish-league {
+    text-align: right;
+  }
+}
+
+
+@media screen and (min-width: 992px) {
+  h1{
+    font-size: 2.5rem;
+    font-weight: bold;
+    /* text-align: center; */
+    margin: 2rem 0;
+  }
+  .player {
+    font-size: 1.45em;
+  }
+
+  .player-input {
+    padding-right: 0;
+  }
+
+  .add-player-btn {
+    text-align: right;
+  }
+}
+
+.wrapper{
+  width: 90%;
+  margin: 0 auto;
+  max-width: 80rem;
+  font-family: 'Expletus Sans';
+}

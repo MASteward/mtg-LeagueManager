@@ -1,0 +1,206 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+body {
+  font-family: 'Expletus Sans';
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: black;
+  color: #fff;
+}
+
+.navbar-dark {
+  background-color: black;
+}
+
+.league-logout {
+  background: radial-gradient(circle, #04508e 45%, #3c77b3);
+  border: #3c77b3;
+}
+
+.container {
+  position: relative;
+  top: 65px;
+  padding: 0;
+  padding-bottom: 50px;
+}
+
+
+.user.suppCard.card.w3-hover-shadow {
+  margin: 0 1px;
+}
+
+.row.title-row{
+  color: black;
+}
+
+.table-title-container {
+  margin: 20px auto;
+  background-color: rgba(255, 255, 255, .8);
+  text-align: center;
+  border-radius: 5px;
+}
+
+h3.table-title {
+  margin: 5px auto;
+}
+
+.card.w3-hover-shadow {
+  border: none;
+  padding: 0;
+}
+
+.commanderCard {
+  max-width: 20%;
+  background-color: black;
+}
+
+.card-deck {
+  justify-content: center;
+}
+
+.card-img-top {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  opacity: 1;
+  transition: .2s ease;
+  backface-visibility: hidden;
+  font-family: medium, 'Montserrat';
+  background-color: black;
+}
+
+.userName {
+  position: absolute;
+  transition: .2s ease;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  font-family: medium, 'Montserrat';
+  font-color: white;
+  background-color: black;
+}
+
+.card-img-top:hover{
+  cursor: pointer;
+}
+
+.card-img-top.userCard:hover {
+  opacity: 0.3;
+  font-family: medium, 'Montserrat';
+  font-color: white;
+  background-color: black;
+}
+
+.user:hover .userName {
+  opacity: 1;
+  font-family: medium, 'Montserrat';
+  font-color: white;
+  background-color: black;
+}
+
+.game-button-container {
+  margin-top: 50px;
+  text-align: right;
+}
+
+#mtg-modal-btn {
+  background: radial-gradient(circle, #F36A26 65%, #FCB52A);
+  border: #FCB52A;
+}
+
+#mtgModal {
+  width: 100%;
+}
+
+.modal-title {
+  position: absolute;
+  color: black;
+  width: 100%;
+  text-align: center;
+}
+
+.modal-body {
+  color: black;
+}
+
+.row.cardDeck {
+  width: 100%;
+  text-align: center;
+}
+
+.btn-circle {
+  width: 25px;
+  height: 25px;
+  padding: 0px;
+  padding-top: 4px;
+  border-radius: 15px;
+}
+
+h4.playerPoints.points {
+    width: 50px;
+}
+
+.modal-header {
+  margin: 0;
+}
+
+.modal-card-image {
+  text-align: center;
+}
+
+.custom-control.commander-names{
+  margin: 0 auto;
+}
+
+h3.modal-table-title {
+  text-align: center;
+  color: #fff;
+  background: #000;
+  padding: 5px;
+}
+
+.game-footer.footer-modal {
+  padding: 0 15px;
+}
+
+#modal-close {
+  background: radial-gradient(circle, #5f7747, #374d27);
+  border: #374d27;
+  color: #fff;
+  opacity: 1;
+  padding: .375rem .75rem;
+  border-radius: .25rem;
+  text-shadow: none;
+  font-weight: normal;
+  line-height: 1.5;
+  font-size: 1.25em;
+}
+
+/* ============= MEDIA QUERIES ============= */
+
+@media screen and (max-width: 575.98px) {
+
+}
+
+@media screen and (min-width: 576px) {
+
+}
+
+@media screen and (min-width: 768px) {
+  .modal-dialog {
+    max-width: 720px;
+  }
+}
+
+
+@media screen and (min-width: 992px) {
+
+}

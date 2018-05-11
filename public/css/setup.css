@@ -1,0 +1,193 @@
+body {
+  font-family: 'Expletus Sans';
+  background-size: cover;
+  /* max-height: 100%; */
+  /* background-size: contain; */
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: black;
+  color: #fff;
+}
+
+.navbar.navbar-dark {
+  background-color: black;
+}
+
+.btn.league-logout {
+  background: linear-gradient(#ef2d28, #f36a26, #fcb62a, #f36a26, #ef2d28);
+  border-color: #ef2d28;
+  background-size: cover;
+}
+
+.container {
+  position: relative;
+  top: 65px;
+  padding-bottom: 25px;
+}
+
+h1,
+h2 {
+  font-size: 3rem;
+  font-family: 'Expletus Sans';
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  margin: 2rem 0;
+  text-decoration: underline;
+}
+
+h1{
+  font-size: 4.5rem;
+  margin-top: 10px;
+}
+
+/* .row {
+  margin-bottom: 20px;
+} */
+
+.gamesAndPlayers-row {
+  height: 160px;
+}
+
+.select-games {
+  text-align: center;
+}
+
+#gameSelect{
+  margin: 0 auto;
+  width: 70px;
+  height: 35px;
+}
+
+.add-player-form {
+  text-align: center;
+}
+
+.input-group.new-player {
+  max-width: 330px;
+  margin: 0 auto;
+}
+
+#addPlayer {
+  color: #fff;
+  background: radial-gradient(#7cb1da, #0f498e);
+  border-color: #0f498e;
+}
+
+.header-row {
+  border-bottom: 2px solid #fff;
+  margin-bottom: 10px;
+}
+
+.player-list-header,
+.playerList {
+  margin: 0 auto;
+}
+
+.div-checkbox {
+  display: table;
+  text-align: end;
+}
+
+.input-checkbox {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+h3.player,
+.name-of-player {
+  padding-left: 15px;
+}
+
+.header-points,
+.member-points {
+  text-align: center;
+}
+
+.input-group-prepend.div-checkbox {
+  width: 5%;
+}
+
+.row.player-list-item {
+  padding-top: 15px;
+  padding-bottom: 5px;
+}
+.player-list-item:hover {
+  background-color: rgba(255,255,255, .8);
+  color: black;
+  border-radius: 6px;
+}
+
+#startGame {
+  width: auto;
+  float: right;
+  background: linear-gradient(#ef2d28, #f36a26, #fcb62a, #f36a26, #ef2d28);
+  border-color: #ef2d28;
+}
+
+.btn {
+  /* color: #fff; */
+  /* border-color: #fff; */
+}
+
+h4.playerPoints.points {
+  margin: 0;
+  margin-top: 4px;
+}
+
+button.delete.btn-circle {
+  height: 32px;
+  vertical-align: top;
+  position: relative;
+  width: 30px;
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+span.ion-ios-trash.trash-btn {
+  position: absolute;
+  top: 0px;
+  left: 4px;
+  padding: 0;
+  color: #fff;
+}
+
+button.delete.btn-circle:hover,
+span.ion-ios-trash.trash-btn:hover {
+  color: #000;
+}
+
+span.ion-ios-trash.trash-btn:hover {
+  cursor: pointer;
+}
+
+.ion-ios-trash:before {
+  content: "\f4c5";
+  font-size: 2em;
+  padding: 0;
+  margin: 0;
+}
+
+.modal-header {
+  background-color: #dd3645;
+  padding: 8px 16px;
+}
+
+.modal-body {
+  color: black;
+}
+
+.modal-footer {
+  padding: 9px 12px;
+}
+
+
+/* .btn-circle {
+  width: 25px;
+  height: 25px;
+  padding: 0px;
+  padding-top: 4px;
+  border-radius: 15px;
+} */
