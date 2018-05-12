@@ -11,7 +11,12 @@ $(document).ready(function() {
 
   $("#addPlayer").click(function(event) {
     event.preventDefault();
-    preparePlayerInfo(event)
+    var newPlayer = $(".playerName-input");
+    if (newPlayer.val().trim()) {
+      preparePlayerInfo(newPlayer)
+    } else {
+      console.log("cannot be blank");
+    }
   });
 
   $("#nameLeague").click(function(event) {
@@ -58,8 +63,8 @@ $(document).ready(function() {
 
 // ===================== COLLECT AND PREP NEW PLAYER INFO =====================
 
-  function preparePlayerInfo() {
-    var newPlayer = $(".playerName-input");
+  function preparePlayerInfo(newPlayer) {
+    // var newPlayer = $(".playerName-input");
     console.log("theLeague II: ", theLeague);
 
     newPlayerObj = {

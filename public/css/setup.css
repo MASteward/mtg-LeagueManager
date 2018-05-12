@@ -120,6 +120,7 @@ h3.player,
 }
 
 #startGame {
+  margin-top: 25px;
   width: auto;
   float: right;
   background: linear-gradient(#ef2d28, #f36a26, #fcb62a, #f36a26, #ef2d28);
