@@ -42,9 +42,9 @@ h1{
   margin-top: 10px;
 }
 
-/* .row {
-  margin-bottom: 20px;
-} */
+.number-games-label {
+  margin: 0 auto;
+}
 
 .gamesAndPlayers-row {
   height: 160px;
@@ -58,6 +58,7 @@ h1{
   margin: 0 auto;
   width: 70px;
   height: 35px;
+  background-color: #fff;
 }
 
 .add-player-form {
@@ -98,6 +99,7 @@ h1{
 h3.player,
 .name-of-player {
   padding-left: 15px;
+  padding-top: 5px;
 }
 
 .header-points,
@@ -107,12 +109,21 @@ h3.player,
 
 .input-group-prepend.div-checkbox {
   width: 5%;
+  padding-top: 5px;
 }
 
 .row.player-list-item {
-  padding-top: 15px;
-  padding-bottom: 5px;
+  margin-top: 15px;
+  padding-top: 5px;
+  /* padding-bottom: 5px; */
 }
+
+.playerPoints,
+.playerCheck,
+.name-of-player {
+  padding-top: 5px;
+}
+
 .player-list-item:hover {
   background-color: rgba(255,255,255, .8);
   color: black;
@@ -127,14 +138,14 @@ h3.player,
   border-color: #ef2d28;
 }
 
-.btn {
-  /* color: #fff; */
-  /* border-color: #fff; */
-}
 
 h4.playerPoints.points {
   margin: 0;
   margin-top: 4px;
+}
+
+.deletePlayer {
+  padding-top: 3px;
 }
 
 button.delete.btn-circle {

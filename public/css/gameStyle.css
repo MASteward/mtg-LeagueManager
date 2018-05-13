@@ -29,7 +29,6 @@ body {
   padding-bottom: 50px;
 }
 
-
 .user.suppCard.card.w3-hover-shadow {
   margin: 0 1px;
 }
@@ -144,8 +143,13 @@ h3.table-title {
   border-radius: 15px;
 }
 
+.row.pointsRow {
+  justify-content: center;
+}
+
 h4.playerPoints.points {
-    width: 50px;
+  /* justify-content: center; */
+  width: 30px;
 }
 
 .modal-header {

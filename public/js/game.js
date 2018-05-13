@@ -252,15 +252,10 @@ $(document).ready(function() {
   function commandersList(row, player, id) {
     var commContainer = $("<div class='col-5 commander'>");
     var currentCommander = player.commander;
-    var selector = $("<select class='custom-control commander-names' data-commander="+ id +" name='selector'>");
+    var selector = $("<select class='custom-select commander-names' data-commander="+ id +" name='selector'>");
     $.each(magicCommanders, function(index, leader) {
       if (index == 0) {
         selector.append("<option class='option' value="+ currentCommander +">"+ magicCommanders[currentCommander].name +"</option>");
-        // if (currentCommander == 0) {
-        //   selector.append("<option class='option' value="+ index +">"+ leader.name +"</option>");
-        // } else {
-        //   selector.append("<option class='option' value="+ currentCommander +">"+ magicCommanders[currentCommander].name +"</option>");
-        // }
       } else if (index == currentCommander) {
         selector.append("<option class='option' value=0>Freya</option>");
       } else {

@@ -68,7 +68,8 @@ $(document).ready(function() {
     var newRow = $("<div class='row player-list-item'>");
     createCheckbox(newRow, player);
     listPlayer(newRow, player);
-    commandersList(newRow);
+    // added player to commandersList to see about drop down, check adding new player in setup;
+    commandersList(newRow, player);
     pointsCounter(newRow, player);
     deleteBtn(newRow, player);
     $(".playerList").append(newRow);
@@ -78,7 +79,7 @@ $(document).ready(function() {
 //============================ DYNAMIC CHECKBOX ================================
 
   function createCheckbox(row, player) {
-    var checkbox = $("<div class='col-1 input-group-prepend div-checkbox'><input type='checkbox' class='input-checkbox playerCheck' data-id="+ player.id +"></div>");
+    var checkbox = $("<div class='col-1 input-group-prepend playerCheck div-checkbox'><input type='checkbox' class='input-checkbox playerCheck' data-id="+ player.id +"></div>");
     $(row).append(checkbox);
   }
 
@@ -93,7 +94,7 @@ $(document).ready(function() {
 
   function commandersList(row) {
     var commContainer = $("<div class='col-4 commander'>");
-    var selector = $("<select class='custom-control commander-names' name='selector'>");
+    var selector = $("<select class='custom-select commander-names' name='selector'>");
     $.each(magicCommanders, function(index, leader) {
       selector.append("<option value="+ index +">"+ leader.name +"</option>");
     });
