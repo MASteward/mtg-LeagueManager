@@ -160,6 +160,11 @@ h4.playerPoints.points {
   text-align: center;
 }
 
+.modal-card-image > img {
+  height: 505px;
+  width: 360px;
+}
+
 .custom-control.commander-names{
   margin: 0 auto;
 }

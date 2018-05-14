@@ -1,10 +1,7 @@
 
-
-
-
 $(document).ready(function() {
   var mockNameArray = ["League With No Name", "A League of Their Own", "Major League", "The League of Extraordinary Gentlemen", "Justice League", "Little Big League", "Out of Your League"];
-  var commonName = mockNameArray[Math.floor(Math.random() * mockNameArray.length) + 1];
+  var commonName = mockNameArray[Math.floor(Math.random() * mockNameArray.length)];
 
   var theLeague;
   var thePlayers;
@@ -28,14 +25,11 @@ $(document).ready(function() {
   // This function grabs the logged-in user's data for the league creation to be connected to
   function initializeUserData() {
     $.get("/api/user_data").then(function(data) {
-      console.log("User Data: ", data);
-      var name = commonName;
-      if (name) {
-        generateName(data, name);
-      } else {
-        name = commonName;
-        generateName(data, name);
-      }
+      var league = {
+        leagueName: commonName,
+        UserId: data.id
+      };
+      initializeLeague(league);
     });
   };
 
@@ -46,19 +40,7 @@ $(document).ready(function() {
     $.post("/api/league", leagueData).then(function(leagueInfo) {
       theLeague = leagueInfo;
       console.log("leagueInfo", leagueInfo);
-      console.log("theLeague I:", theLeague);
     });
-  };
-
-// ===================== NAME GENERATOR =====================
-
-  function generateName(userInfo, name) {
-    console.log("commonName", name);
-    var fauxLeague = {
-      leagueName: name,
-      UserId: userInfo.id
-    };
-    initializeLeague(fauxLeague);
   };
 
 // ===================== COLLECT AND PREP NEW PLAYER INFO =====================
@@ -115,7 +97,6 @@ $(document).ready(function() {
       })
       .then(function() {
         storeLocal();
-        // window.location.replace("/setup");
       });
     }
   };

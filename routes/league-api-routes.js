@@ -14,7 +14,10 @@ module.exports = function(app) {
 
   // POST route for saving a new league
   app.post("/api/league", function(req, res) {
-    db.League.create(req.body).then(function(dbLeague) {
+    db.League.create({
+      leagueName: req.body.leagueName,
+      UserId: req.body.UserId
+    }).then(function(dbLeague) {
       console.log("League Added in Database");
       res.json(dbLeague);
     });

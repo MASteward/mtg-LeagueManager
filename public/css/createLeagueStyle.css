@@ -17,6 +17,11 @@ body {
   top: 65px;
 }
 
+.league-logout {
+  background: linear-gradient(#ef2d28, #f36a26, #fcb62a, #f36a26, #ef2d28);
+  border-color: #ef2d28;
+}
+
 /* ============= MEDIA QUERIES ============= */
 
 @media screen and (max-width: 575.98px) {

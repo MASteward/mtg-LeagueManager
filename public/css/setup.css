@@ -101,6 +101,7 @@ h3.player,
   padding-left: 15px;
   padding-top: 5px;
 }
+
 h3.commander {
   text-align: center;
 }
@@ -134,6 +135,7 @@ h3.commander {
 }
 
 #startGame {
+  color: #fff;
   margin-top: 25px;
   width: auto;
   float: right;
