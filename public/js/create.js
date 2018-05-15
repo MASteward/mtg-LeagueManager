@@ -1,27 +1,17 @@
 
 $(document).ready(function() {
+  // array of names to be used until player chooses own name...used as a placeholder so players can be assigned
   var mockNameArray = ["League With No Name", "A League of Their Own", "Major League", "The League of Extraordinary Gentlemen", "Justice League", "Little Big League", "Out of Your League"];
+  
+  // randomly pick one of the names
   var commonName = mockNameArray[Math.floor(Math.random() * mockNameArray.length)];
 
   var theLeague;
   var thePlayers;
 
-  $("#addPlayer").click(function(event) {
-    event.preventDefault();
-    var newPlayer = $(".playerName-input");
-    if (newPlayer.val().trim()) {
-      preparePlayerInfo(newPlayer)
-    } else {
-      console.log("cannot be blank");
-    }
-  });
+  initializeUserData();
 
-  $("#nameLeague").click(function(event) {
-    updateLeague(event);
-  });
-
-// =================== INITIALIZE USER DATA ====================
-
+//============================ INITIALIZE USER DATA ============================
   // This function grabs the logged-in user's data for the league creation to be connected to
   function initializeUserData() {
     $.get("/api/user_data").then(function(data) {
@@ -33,8 +23,7 @@ $(document).ready(function() {
     });
   };
 
-
-// ===================== INITIALIZE LEAGUE =====================
+//============================= INITIALIZE LEAGUE ==============================
 
   function initializeLeague(leagueData) {
     $.post("/api/league", leagueData).then(function(leagueInfo) {
@@ -43,10 +32,21 @@ $(document).ready(function() {
     });
   };
 
-// ===================== COLLECT AND PREP NEW PLAYER INFO =====================
+//============================ ADD PLAYER TO LEAGUE ============================
+
+  $("#addPlayer").click(function(event) {
+    event.preventDefault();
+    var newPlayer = $(".playerName-input");
+    if (newPlayer.val().trim()) {
+      preparePlayerInfo(newPlayer)
+    } else {
+      console.log("cannot be blank");
+    }
+  });
+
+//========================== COLLECT NEW PLAYER DATA ===========================
 
   function preparePlayerInfo(newPlayer) {
-    // var newPlayer = $(".playerName-input");
     console.log("theLeague II: ", theLeague);
 
     newPlayerObj = {
@@ -59,7 +59,7 @@ $(document).ready(function() {
     addPlayer(newPlayerObj);
   };
 
-// ================ ADD NEW PLAYER TO DATABASE =================
+//=========================== ADD PLAYER TO DATABASE ===========================
 
   function addPlayer(playersData) {
     $.post("/api/player", playersData).then(function(createdPlayerData) {
@@ -68,7 +68,7 @@ $(document).ready(function() {
     });
   };
 
-// ===================== RENDER PLAYER =====================
+//=============================== RENDER PLAYERS ===============================
 
   function renderPlayer(player) {
     console.log("playerData", player);
@@ -76,12 +76,17 @@ $(document).ready(function() {
     $(".player-output").append(playerItem);
   };
 
-// ===================== UPDATE LEAGUE NAME =====================
+//============================ CREATE LEAGUE BUTTON ============================
 
-  function updateLeague(e) {
+  $("#nameLeague").click(function(event) {
+    event.preventDefault();
+    nameLeague();
+  });
 
+//============================= USER'S LEAGUE NAME =============================
+
+  function nameLeague() {
     var name = $(".leagueName-input");
-    e.preventDefault();
 
     if (!name.val().trim()) {
       window.location.replace("/setup")
@@ -90,31 +95,41 @@ $(document).ready(function() {
         leagueName: name.val().trim(),
         id: theLeague.id
       }
-      $.ajax({
-        method: "PUT",
-        url: "/api/league",
-        data: nameOfLeague
-      })
-      .then(function() {
-        storeLocal();
-      });
+      updateLeague(nameOfLeague);
     }
   };
 
-// ================ STORE LEAGUE AND COMMANDER DATA LOCALLY ================
+//============================= UPDATE LEAGUE NAME =============================
+
+  function updateLeague(nameOfLeague) {
+    $.ajax({
+      method: "PUT",
+      url: "/api/league",
+      data: nameOfLeague
+    })
+    .then(function() {
+      storeLocal();
+    });
+  };
+
+//======================== STORE COMMANDER DATA LOCALLY ========================
 
   function storeLocal() {
     $.get("/api/commander").then(function(results) {
       localStorage.setItem("mtgCommanders", JSON.stringify(results));
-      $.get("/api/league_data").then(function(data) {
-        localStorage.setItem("data", JSON.stringify(data));
-        window.location.replace("/setup");
-      });
+      window.location.replace("/setup");
     });
   };
 
-  // ===================== INITIALIZE START OF JAVASCRIPT =====================
+//================================ BACKGROUND ==================================
 
-  initializeUserData();
+  var images = ["mtg-portrait-blue2.jpg", "mtg-portrait-red2.jpg", "mtg-portrait-gold2.jpg", "mtg-portrait-purple2.jpg", "mtg-portrait-green2.jpg"];
+  var screenSize = Math.floor((Math.random() * images.length) + 1);
+  var background = images[screenSize];
+  if (screen.height > screen.width) {
+    $("body").css("background-image", "url(./images/backgrounds/" + background + ")");
+  } else {
+    $("body").css("background-image", "url(./images/backgrounds/mtg-landscape-wallpaper.jpg)");
+  }
 
 });

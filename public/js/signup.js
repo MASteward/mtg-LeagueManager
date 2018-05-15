@@ -1,8 +1,10 @@
-// both login and signin
-
 
 $(document).ready(function() {
   // Getting references to our form and input
+
+//==============================================================================
+//                                  SIGN-UP
+//==============================================================================
   var signUpForm = $("form.signup");
   var signUpEmail = $("input#signup-email-input");
   var signUpPassword = $("input#signup-password-input");
@@ -41,16 +43,20 @@ $(document).ready(function() {
     $("#alert").fadeIn(500);
   };
 
-  // ================== LOGIN =====================
+  //==============================================================================
+  //                                  LOGIN
+  //==============================================================================
 
   var loginForm = $("form.login");
   var loginEmail = $("input#login-email-input");
   var loginPassword = $("input#login-password-input");
+  var form = $(".needs-validation");
 
 
   // When the form is submitted, we validate there's an email and password entered
   loginForm.on("submit", function(event) {
     event.preventDefault();
+
     var userData = {
       email: loginEmail.val().trim(),
       password: loginPassword.val().trim()
@@ -76,46 +82,54 @@ $(document).ready(function() {
         localStorage.setItem("mtgCommanders", JSON.stringify(results));
         window.location.replace(page);
       });
-      // window.location.replace(data);
       // If there's an error, log the error
     }).catch(function(err) {
+      $(".login-msg").text("Invalid Email or Password");
+      $("#alert").removeClass("d-none");
       console.log(err);
     });
   }
 
-});
 
+//==============================================================================
+//                                  BACKGROUND
+//==============================================================================
 
-var images = ["mtg-portrait-blue2.jpg", "mtg-portrait-red2.jpg", "mtg-portrait-gold2.jpg", "mtg-portrait-purple2.jpg", "mtg-portrait-green2.jpg"];
-var screenSize = Math.floor((Math.random() * images.length) + 1);
-var background = images[screenSize];
-if (screen.height > screen.width) {
-  console.log("portrait");
-  $("body").css("background-image", "url(./images/backgrounds/" + background + ")");
-} else {
-  console.log("landscape");
-  $("body").css("background-image", "url(./images/backgrounds/mtg-landscape-wallpaper.jpg)");
-}
+  var images = ["mtg-portrait-blue2.jpg", "mtg-portrait-red2.jpg", "mtg-portrait-gold2.jpg", "mtg-portrait-purple2.jpg", "mtg-portrait-green2.jpg"];
+  var screenSize = Math.floor((Math.random() * images.length) + 1);
+  var background = images[screenSize];
+  if (screen.height > screen.width) {
+    console.log("portrait");
+    $("body").css("background-image", "url(./images/backgrounds/" + background + ")");
+  } else {
+    console.log("landscape");
+    $("body").css("background-image", "url(./images/backgrounds/mtg-landscape-wallpaper.jpg)");
+  }
 
+//==============================================================================
+//                             SIGN-IN & LOGIN CARDS
+//==============================================================================
 
-$(document).on('click', '.card-footer', function(){
-  var belowCard = $('.below'),
-  aboveCard = $('.above'),
-  parent = $('.form-collection');
-  parent.addClass('animation-state-1');
-  setTimeout(function(){
-    belowCard.removeClass('below');
-    aboveCard.removeClass('above');
-    belowCard.addClass('above');
-    aboveCard.addClass('below');
+  $(document).on('click', '.card-footer', function(){
+    var belowCard = $('.below'),
+    aboveCard = $('.above'),
+    parent = $('.form-collection');
+    parent.addClass('animation-state-1');
     setTimeout(function(){
-      parent.addClass('animation-state-finish');
-      parent.removeClass('animation-state-1');
+      belowCard.removeClass('below');
+      aboveCard.removeClass('above');
+      belowCard.addClass('above');
+      aboveCard.addClass('below');
       setTimeout(function(){
-        aboveCard.addClass('turned');
-        belowCard.removeClass('turned');
-        parent.removeClass('animation-state-finish');
-      }, 300)
-    }, 10)
-  }, 300);
+        parent.addClass('animation-state-finish');
+        parent.removeClass('animation-state-1');
+        setTimeout(function(){
+          aboveCard.addClass('turned');
+          belowCard.removeClass('turned');
+          parent.removeClass('animation-state-finish');
+        }, 300)
+      }, 10)
+    }, 300);
+  });
+
 });

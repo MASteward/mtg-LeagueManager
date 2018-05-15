@@ -74,6 +74,15 @@ h1{
   color: #fff;
   background: radial-gradient(#7cb1da, #0f498e);
   border-color: #0f498e;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.add-player-feedback {
+  background-color: #fff;
+  border-radius: 5px;
+  font-size: 13px;
+  padding: 2px 0;
 }
 
 .header-row {
@@ -84,6 +93,10 @@ h1{
 .player-list-header,
 .playerList {
   margin: 0 auto;
+}
+
+#playerArea {
+  margin-bottom: 25px;
 }
 
 .div-checkbox {
@@ -134,11 +147,23 @@ h3.commander {
   border-radius: 6px;
 }
 
+.start-button-column {
+  text-align: right;
+}
+
+#alert.alert-danger {
+  margin: 0 5px;
+  display: inline-block;
+  padding: 6px 20px;
+}
+
+.start-button {
+  display: inline-block;
+}
+
 #startGame {
   color: #fff;
-  margin-top: 25px;
   width: auto;
-  float: right;
   background: linear-gradient(#ef2d28, #f36a26, #fcb62a, #f36a26, #ef2d28);
   border-color: #ef2d28;
 }
@@ -199,12 +224,3 @@ span.ion-ios-trash.trash-btn:hover {
 .modal-footer {
   padding: 9px 12px;
 }
-
-
-/* .btn-circle {
-  width: 25px;
-  height: 25px;
-  padding: 0px;
-  padding-top: 4px;
-  border-radius: 15px;
-} */

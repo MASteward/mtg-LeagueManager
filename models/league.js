@@ -5,25 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     leagueName: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-
-    // leaguePoints: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: true
-    // },
-    //
-    // leagueStanding: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: true
-    // }
-
-    // leagueCurrentGames: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: true
-    // }
-
-    // timestamps: false
-
+    }
   });
 
   League.associate = function(models) {

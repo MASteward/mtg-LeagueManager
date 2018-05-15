@@ -6,14 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="images/logos/mtg-logo-M-noBg.png">
-    <title>EDH League Manager</title>
+
+    <title>MTG League Manager</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Expletus+Sans:400,500,700|Montserrat:400,400i,500,500i" rel="stylesheet">
     <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/setup.css">
-
-
-
   </head>
 
   <body>
@@ -43,7 +42,7 @@
         </div>
       </div>
 
-  <!-- NUMBER OF GAMES AND PLAYER ADDITIONS -->
+      <!-- NUMBER OF GAMES AND PLAYER ADDITIONS -->
 
       <div class="row gamesAndPlayers-row">
         <div class="col-6">
@@ -71,6 +70,7 @@
               <div class="input-group-append">
                 <button id="addPlayer" class="btn btn-outline-secondary" type="submit">Add Player</button>
               </div>
+              <div class="invalid-feedback add-player-feedback">Player's name cannot be blank!</div>
             </div>
           </form>
         </div>
@@ -87,7 +87,6 @@
       <div class="row">
         <div class="d-none col-md-1">&nbsp;</div>
         <div class="col-10 player-list-header">
-        <!-- REMOVED class="input-checkbox" FROM NON-DYNAMIC INPUT ELEMENT -->
           <div class="row header-row">
             <div class="col-1 input-group-prepend div-checkbox">
                 <input type='checkbox' id="playingGame" aria-label='Checkbox for the following text input'>
@@ -113,7 +112,7 @@
         <div class="d-none col-md-1">&nbsp;</div>
       </div>
 
-      <div class="row">
+      <div class="row" id="playerArea">
         <div class="d-none col-md-1">&nbsp;</div>
 
         <div class="col-12 col-md-10 playerList">
@@ -125,9 +124,14 @@
         <div class="d-none col-md-1">&nbsp;</div>
       </div>
 
-      <div class="row ">
-        <div class="col-12">
-          <button id="startGame" class="btn btn-block btn-outline-secondary start" type="submit">Start Game</button>
+      <div class="row">
+        <div class="col-12 start-button-column">
+          <div id="alert" class="d-none alert alert-danger start-alert" role="alert">
+            <span class="start-msg">More than one player must be selected</span>
+          </div>
+          <div class="start-button">
+            <button id="startGame" class="btn btn-block btn-outline-secondary start" type="submit">Start Game</button>
+          </div>
         </div>
       </div>
 
@@ -156,19 +160,6 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript">
-      var images = ["mtg-portrait-blue2.jpg", "mtg-portrait-red2.jpg", "mtg-portrait-gold2.jpg", "mtg-portrait-purple2.jpg", "mtg-portrait-green2.jpg"];
-      var screenSize = Math.floor((Math.random() * images.length) + 1);
-      var background = images[screenSize];
-      if (screen.height > screen.width) {
-        console.log("portrait");
-        $("body").css("background-image", "url(./images/backgrounds/" + background + ")");
-      } else {
-        console.log("landscape");
-        $("body").css("background-image", "url(./images/backgrounds/mtg-landscape-wallpaper.jpg)");
-      }
-    </script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/setup.js"></script>

@@ -7,8 +7,6 @@
 body {
   font-family: 'Expletus Sans';
   background-size: cover;
-  /* max-height: 100%; */
-  /* background-size: contain; */
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center;
@@ -18,7 +16,6 @@ body {
 
 .container {
   position: relative;
-  /* top: 65px; */
 }
 
 .row {
@@ -43,125 +40,14 @@ body {
 
 }
 
-/* .container {
-    margin-top: 60px;
-    margin-bottom: 60px;
-    font-family: medium, 'Montserrat';
-    font-color: white;
-    background-color: black;
-
-} */
-
-/* .ss-grad {
-    background-clip: text;
-    -webkit-background-clip: text;
-    font-family: medium, 'Montserrat';
-    font-color: white;
-    background-color: black;
-} */
-
-/* .card-img-top {
-    position: relative;
-    opacity: 1;
-    transition: .2s ease;
-    backface-visibility: hidden;
-    font-family: medium, 'Montserrat';
-    font-color: white;
-    background-color: black;
-} */
-
-/* .userName {
-    position: absolute;
-    transition: .2s ease;
-    opacity: 0;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    text-align: center;
-    font-family: medium, 'Montserrat';
-    font-color: white;
-    background-color: black;
-} */
-
-/* .user:hover .card-img-top {
-    opacity: 0.3;
-    font-family: medium, 'Montserrat';
-    font-color: white;
-    background-color: black;
-  }
-
-.user:hover .userName {
-    opacity: 1;
-    font-family: medium, 'Montserrat';
-    font-color: white;
-    background-color: black;
-} */
-
-
 form.signup,
 form.login {
   margin-top: 50px;
 }
 
-/* body {
-  font-family: 'Expletus Sans';
-  margin: 0;
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  display: -webkit-flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  background: black; */
-
-
-
-  /* Center and scale the image nicely */
-  /* background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  z-index:-1; */
-/* } */
-
-
-
 .limit-width {
   max-width: 300px;
 }
-
-/* .absolute-footer {
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  z-index: 1;
-  text-align: center;
-  font-size: 27.2px;
-  font-size: 1.7rem;
-  font-weight: 300;
-  padding: 15px;
-  background: rgba(0, 0, 0, 0.4);
-  color: #fff;
-} */
-
-/*Styling Card */
-/* .card {
-  background: black;
-  position: relative;
-  text-align: center;
-  -webkit-transition: 0.3s ease all;
-  transition: 0.3s ease all;
-} */
 
 .card-body {
   padding: 20px;

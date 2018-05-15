@@ -7,9 +7,6 @@ var app = express();
 var PORT = process.env.PORT || 8080;
 var db = require("./models");
 
-// Sets up the Express App
-
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static("public"));

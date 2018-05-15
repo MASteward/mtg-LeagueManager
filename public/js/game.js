@@ -10,7 +10,6 @@ $(document).ready(function() {
   var supplementalCards = [];
   var tableAmount = gameData.tables;
   var gameCount = gameData.games;
-  // var gameNumber = 1;
   var gameOver = false;
   var playerRows = [];
 
@@ -21,9 +20,7 @@ $(document).ready(function() {
 //========================= GET SUPPLEMENTAL CARDS =============================
 
   $.get("api/supplemental").then(function(cards) {
-    // supplementalCards = cards;
     supplementalCards = shuffle(cards);
-    // console.log("shuffledCards", shuffledCards);
     createSupCards(supplementalCards);
   });
 
@@ -156,7 +153,6 @@ $(document).ready(function() {
         var tableNumber = $("<div class='col-12 title-container'><h3 class='modal-table-title'> Table " + [i] + "</h3></div>");
         var tableInfo = $("<div class='row cardDeck'>");
         var tableContent= $("<div class='col-12 modal-deck' data-modal-table="+[i]+">");
-        // console.log("modalCard", tableContent);
         titleRow.append(tableNumber);
         tableInfo.append(tableContent);
         titleRow.append(tableInfo);
@@ -167,7 +163,6 @@ $(document).ready(function() {
         var tableNumber = $("<div class='col-12 table-title-container'><h3 class='table-title'> Table " + [i] + "</h3></div>");
         var tableInfo = $("<div class='row card-deck-row'>");
         var tableContent = $("<div class='col-12 card-deck' data-table="+[i]+">");
-        // console.log("tableCard", tableContent);
         titleRow.append(tableNumber);
         tableInfo.append(tableContent);
         titleRow.append(tableInfo);
@@ -184,6 +179,8 @@ $(document).ready(function() {
     modalCard(displayCard, cardName);
   });
 
+//============================ CREATE MODAL CARD ===============================
+
   function modalCard(card, name) {
     var cardImage = $("<div class='modal-card-image'><img src=" + card + " alt=" + name + "></div>");
     clearModal();
@@ -192,11 +189,15 @@ $(document).ready(function() {
     $(".modal-footer").css("visibility", "hidden");
   };
 
+//=============================== CLEAR MODAL ==================================
+
   function clearModal() {
     $("#title").empty();
     $(".table-content").empty();
     $(".modal-footer").css("visibility", "visible");
   }
+
+//============================= CLEAR GAME PAGE ================================
 
   function clearBoard() {
     $(".supp-cards").empty();
@@ -313,11 +314,6 @@ $(document).ready(function() {
     var nextGameArray = [];
     var playerCount = players.length;
     $.each(players, function(index, player) {
-      console.log("PLAYER NAME", player.playerName);
-      // var theCommander = playerRows[index].closest("select").val();
-      // console.log("commander", theCommander);
-      // var myCommander = playerRows[index].children().children("div.commander").children("select").val();
-      // console.log("mycom", myCommander);
       var theCommander = playerRows[index].find(".commander-names").val();
       console.log("theCommander", theCommander);
       var currentData = {
@@ -332,6 +328,8 @@ $(document).ready(function() {
     players = nextGameArray;
     updateGameData(nextGameArray, playerCount);
   });
+
+//========================== UPDATE PLAYERS INFO ===============================
 
   function updateGameData(updatedData, playerCount) {
     $.each(updatedData, function(index, player) {
@@ -351,22 +349,22 @@ $(document).ready(function() {
     });
   };
 
+//============================== START NEXT GAME ===============================
+
   function loadGame() {
     clearBoard();
     startGame(players);
   }
 
 
- //================================ BACKGROUND =================================
+//================================ BACKGROUND ==================================
 
   var images = ["mtg-portrait-blue2.jpg", "mtg-portrait-red2.jpg", "mtg-portrait-gold2.jpg", "mtg-portrait-purple2.jpg", "mtg-portrait-green2.jpg"];
   var screenSize = Math.floor((Math.random() * images.length) + 1);
   var background = images[screenSize];
   if (screen.height > screen.width) {
-    // console.log("portrait");
     $("body").css("background-image", "url(./images/backgrounds/" + background + ")");
   } else {
-    // console.log("landscape");
     $("body").css("background-image", "url(./images/backgrounds/mtg-landscape-wallpaper.jpg)");
   }
 
