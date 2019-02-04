@@ -1,7 +1,13 @@
-* {
+*,
+*::after,
+*::before {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
 }
 
 body {
@@ -10,79 +16,129 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: black;
   color: #fff;
+  font-size: 1.6rem;
+  line-height: 1.7;
+}
+
+hr {
+  border: none;
+  height: 3px;
+  color: #fff;
+  background-color: #fff;
+  margin: 1.5rem 0;
+}
+
+.primary-title {
+  font-size: 6rem;
+  font-weight: 700;
+}
+
+.secondary-title {
+  font-size: 4.5rem;
+  font-weight: 600;
+}
+
+.tertiary-title {
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+h4 {
+  font-size: 2rem;
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
+}
+
+.button {
+  border-radius: 5px;
+  padding: .5rem;
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-weight: bold;
+  outline:none;
+  box-shadow: 0 2px 8px #000;
+}
+
+.button:active {
+  transform: scale(.95) translateY(2px);
+  box-shadow: 0 1px 8px 2px #000;
+}
+
+/* =========== HEADER =========== */
+
+header.navbar {
+  background-color: #000;
+  font-size: 2rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+header .navbar__logo {
+  display: flex;
+  align-items: end;
+}
+
+header .navbar__logo span {
+  margin-left:1rem;
 }
 
 .container {
   position: relative;
-}
-
-.row {
+  display: flex;
   justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-.navbar-dark {
-  background-color: black;
-}
-
-.form-collection {
-  width: 300px;
-  height: 350px;
-  position: absolute;
+.card-area {
+  width: 40rem;
+  height: 50rem;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  /* perspective: 1200px; */
 }
 
 .card {
+  width: 28rem;
+  height: 35rem;
+  /* transform-style: preserve-3d; */
   position: absolute;
-  top: 50%;
-  background-color: black;
+
   font-family: 'Expletus Sans';
-
+  transition: all 3s;
+  padding: 2px;
+  background-image:linear-gradient(to bottom right, #ef2d28 30%, #f36a26, #fcb62a, #f36a26, #ef2d28);
 }
 
-form.signup,
-form.login {
-  margin-top: 50px;
-}
-
-.limit-width {
-  max-width: 300px;
-}
-
-.card-body {
-  padding: 20px;
-}
-
-.box-btn {
-  text-decoration: none;
-  text-align: center;
-  text-transform: uppercase;
-  display: block;
-  padding: 15px;
-  font-size: 16px;
-  font-weight: 500;
-  color: #444;
-  background: rgba(0, 0, 0, 0);
-  -webkit-transition: 0.2s ease all;
-  transition: 0.2s ease all;
-  border-radius: 3px;
-}
-.box-btn:hover {
-  background: rgba(0, 0, 0, 0.06);
-}
-.box-btn:active {
-  background: rgba(0, 0, 0, 0.1);
+.login-form,
+.signup-form {
+  background-color: #0f0f0f;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height:100%;
+  padding: 2rem;
 }
 
 .input-group {
   border: 2px solid #eee;
   position: relative;
   background: #eee;
-  margin: 25px 0;
+  margin: 2.35rem 0;
   border-radius: 2px;
   overflow: hidden;
-  padding: 10px;
+  padding: .75rem;
 }
+
 .input-group input {
   border: none;
   background: transparent;
@@ -92,20 +148,39 @@ form.login {
   font-family: "Expletus Sans", sans-serif;
   font-size: 16px;
 }
+
 .input-group label {
   position: absolute;
-  top: 10px;
+  top: 1rem;
   left: 0;
-  padding-left: 10px;
+  padding-left: 1rem;
   font-weight: 500;
   color: #aaa;
 }
 
+.box-btn{
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  padding: .375rem .75rem;
+  font-size: 1.3rem;
+  line-height: 1.7;
+  background: radial-gradient(#fcb62a, #f36a26, #ef2d28);
+  border-color: #ef2d28;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.password {
+  display:flex;
+  padding:.525rem;
+}
+
 .card-footer button {
   width: 100%;
-  padding: 25px;
-  font-size: 24px;
-  font-size: 1.5rem;
+  padding: 2.5rem;
+  font-size: 2.2rem;
   text-transform: uppercase;
   font-weight: 600;
   background: #4CAF50;
@@ -114,140 +189,154 @@ form.login {
   box-shadow: none;
   outline: none;
   cursor: pointer;
+  border-radius: 5px;
 }
 
-/*Animation Classes And Prerequisits */
-.above {
-  z-index: 1;
-}
-
-.below {
-  z-index: 0;
-}
-
-.turned {
-  opacity: 0.8;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
-}
-
-.sign-up-card, .log-in-card {
+.signup-card,
+.login-card {
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
 
-.sign-up-card.turned {
-  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="0.8" /></filter></svg>#filter');
-  -webkit-filter: blur(0.8px);
-  filter: blur(0.8px);
-  webkit-filter: blur(0.8px);
-  -webkit-transform: rotateZ(-90deg) translate3d(0, 100px, 0) scale(0.7);
-  transform: rotateZ(-90deg) translate3d(0, 100px, 0) scale(0.7);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+.card-footer .alert {
+  color: red;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
 }
 
-.log-in-card.turned {
-  /* height: 35%; */
-  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="1" /></filter></svg>#filter');
-  -webkit-filter: blur(1px);
-  filter: blur(1px);
-  webkit-filter: blur(1px);
-  -webkit-transform: rotateZ(-90deg) translateX(0px) translateY(100px) scale(0.7);
-  transform: rotateZ(-90deg) translateX(0px) translateY(100px) scale(0.7);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+@keyframes toFront {
+  0% {
+    transform: translate3d(8.5rem, 0rem, 50px) scale(.9) rotateZ(-90deg);
+  }
+
+  50% {
+    transform: translate3d(3rem, -25rem, 80px) rotateZ(-60deg);
+  }
+
+  100% {
+    transform: translate3d(0rem, 0rem, 100px) scale(1);
+  }
 }
 
-.animation-state-1 .sign-up-card.below {
-  -webkit-transform: rotateZ(-7deg) translateY(150px) scale(0.78);
-  transform: rotateZ(-7deg) translateY(150px) scale(0.78);
-  opacity: 1;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="0.4" /></filter></svg>#filter');
-  -webkit-filter: blur(0.4px);
-  filter: blur(0.4px);
-  webkit-filter: blur(0.4px);
-}
-.animation-state-1 .log-in-card.above {
-  -webkit-transform: rotateZ(-83deg) translateY(-180px) translateX(100px) scale(0.78);
-  transform: rotateZ(-83deg) translateY(-180px) translateX(100px) scale(0.78);
-  opacity: 1;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="0.5" /></filter></svg>#filter');
-  -webkit-filter: blur(0.5px);
-  filter: blur(0.5px);
-  webkit-filter: blur(0.5px);
+@keyframes toBack {
+  0% {
+    transform: translate3d(0rem, 0rem, 100px) scale(1);
+  }
+
+  50% {
+    transform: translate3d(4rem, 25rem, 80px) rotateZ(-60deg);
+  }
+
+  100% {
+    transform: translate3d(8.5rem, 0rem, 50px) scale(.9) rotateZ(-90deg);
+  }
 }
 
-.animation-state-finish .sign-up-card.above {
-  -webkit-transform-origin: left top;
-  transform-origin: left top;
-  -webkit-transform: rotateZ(5deg) translateY(0px) scale(1);
-  transform: rotateZ(5deg) translateY(0px) scale(1);
-  opacity: 1;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="0" /></filter></svg>#filter');
-  -webkit-filter: blur(0);
-  filter: blur(0);
-  webkit-filter: blur(0);
-}
-.animation-state-finish .log-in-card.below {
-  height: 35%;
-  -webkit-transform: rotateZ(-90deg) translateX(0px) translateY(100px) scale(0.7);
-  transform: rotateZ(-90deg) translateX(0px) translateY(100px) scale(0.7);
-  opacity: 0.8;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
-  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="1" /></filter></svg>#filter');
-  -webkit-filter: blur(1px);
-  filter: blur(1px);
-  webkit-filter: blur(1px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+/* SMALL SCREEN */
+
+/* @keyframes rotateLeft {
+  0% {
+    transform: translate3d(0rem, 0rem, 100px);
+  }
+  100% {
+    transform:translate3d(-17rem, 0rem, -2rem) rotateY(-70deg);
+  }
+} */
+
+
+
+
+
+/* ========== MEDIA QUERIES ============= */
+@media screen and (max-width: 575.98px) {
+  .container {
+    perspective: 1200px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-area {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    /* transform: translateZ(-40rem); */
+    transform: translateZ(-5rem);
+    transition: transform 1s;
+  }
+
+  .card {
+    width: 25rem;
+  }
+
+  .signup-card {
+    transform: rotateY(70deg) translateZ(18rem);
+  }
+  .login-card {
+    transform: rotateY(0deg) translateZ(18rem);
+  }
+
+  .rotate {
+    transform: translateZ(-5rem) rotateY(-70deg);
+  }
+
+  .middle {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .switch-notify {
+    font-size: 1.3rem;
+    margin-bottom: 4px;
+  }
+
+  .switch {
+    font-size: 2.6rem;
+  }
+
+  .flip {
+    transform: rotate(180deg);
+    margin-bottom: 1.2rem;
+  }
+
+  .card-footer button {
+    font-size: 2rem;
+  }
 }
 
-.animation-state-1 .log-in-card.below {
-  -webkit-transform: rotateZ(-10deg) translateY(180px) scale(0.78);
-  transform: rotateZ(-10deg) translateY(180px) scale(0.78);
-  opacity: 1;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="0.5" /></filter></svg>#filter');
-  -webkit-filter: blur(0.5px);
-  filter: blur(0.5px);
-  webkit-filter: blur(0.5px);
-}
-.animation-state-1 .sign-up-card.above {
-  -webkit-transform: rotateZ(-80deg) translateY(-170px) translateX(100px) scale(0.78);
-  transform: rotateZ(-80deg) translateY(-170px) translateX(100px) scale(0.78);
-  opacity: 1;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="0.4" /></filter></svg>#filter');
-  -webkit-filter: blur(0.4px);
-  filter: blur(0.4px);
-  webkit-filter: blur(0.4px);
-}
 
-.animation-state-finish .log-in-card.above {
-  -webkit-transform-origin: left top;
-  transform-origin: left top;
-  -webkit-transform: rotateZ(5deg) translateY(0px) scale(1);
-  transform: rotateZ(5deg) translateY(0px) scale(1);
-  opacity: 1;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="0" /></filter></svg>#filter');
-  -webkit-filter: blur(0);
-  filter: blur(0);
-  webkit-filter: blur(0);
-}
-.animation-state-finish .sign-up-card.below {
-  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="0.4" /></filter></svg>#filter');
-  -webkit-filter: blur(0.4px);
-  filter: blur(0.4px);
-  webkit-filter: blur(0.4px);
-  -webkit-transform: rotateZ(-90deg) translate3d(0, 100px, 0) scale(0.7);
-  transform: rotateZ(-90deg) translate3d(0, 100px, 0) scale(0.7);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  opacity: 0.7;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+@media screen and (min-width: 1440px) {
+  .card-area {
+    position: relative;
+    perspective: 1200px;
+  }
+
+  .card {
+    transform-style: preserve-3d;
+  }
+
+  .signup-card {
+    z-index: 0;
+    transform: translate3d(8.5rem, 0rem, 50px) scale(.9) rotateZ(-90deg);
+  }
+
+  .login-card {
+    z-index: 1;
+    transform: translate3d(0rem, 0rem, 100px) scale(1);
+  }
+
+  .toFront {
+    z-index: 1;
+    animation: toFront ease-out 2s;
+    transform: translate3d(0rem, 0rem, 100px) scale(1);
+  }
+
+  .toBack {
+    z-index: 0;
+    animation: toBack ease-out 2s;
+    transform: translate3d(8.5rem, 0rem, 50px) scale(.9) rotateZ(-90deg);
+  }
+
+  .middle {
+    display: none;
+  }
 }

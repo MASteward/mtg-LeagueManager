@@ -1,7 +1,16 @@
-* {
+*,
+*::after,
+*::before {
   box-sizing: border-box;
+  margin: 0;
   padding: 0;
 }
+
+html {
+  font-size: 62.5%;
+}
+
+
 
 body {
   font-family: 'Expletus Sans';
@@ -9,194 +18,260 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: black;
+  color: #000;
+  font-size: 1.6rem;
+  line-height: 1.7;
+}
+
+hr {
+  border: none;
+  height: 3px;
+  color: #fff;
+  background-color: #fff;
+  margin: 1.5rem 0;
+}
+
+.primary-title {
+  font-size: 3.5rem;
+}
+
+.secondary-title {
+  font-size: 3rem;
+}
+
+.tertiary-title {
+  font-size: 2.5rem;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  /* height:100%; */
+  /* text-align: center; */
+  align-items: center;
+}
+
+.button {
+  border-radius: 5px;
+  padding: .75rem;
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+/* =========== HEADER =========== */
+
+header.navbar {
+  background-color: #000;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color:#fff;
+}
+
+header .navbar__logo {
+  display: flex;
+  align-items: flex-end;
+}
+
+header .navbar__logo span {
+  margin-left:1rem;
+}
+
+header .league-logout {
+  background: linear-gradient(#ef2d28, #f36a26, #fcb62a, #f36a26, #ef2d28);
+  border-color: #ef2d28;
   color: #fff;
 }
 
-.navbar-dark {
-  background-color: black;
-}
 
-.league-logout {
-  background: radial-gradient(circle, #04508e 45%, #3c77b3);
-  border: #3c77b3;
-}
+/* MAIN SECTION */
 
 .container {
   position: relative;
-  top: 65px;
-  padding: 0;
-  padding-bottom: 50px;
+  padding: 1.5rem;
+  max-width: 1280px;
+  width:100%;
+  margin: 0 auto;
 }
 
-.user.suppCard.card.w3-hover-shadow {
-  margin: 0 1px;
+#supplementalCardsDiv {
+  animation: slideInRight ease-in 2s;
+  color: #fff;
 }
 
-.row.title-row{
-  color: black;
+.tables_section {
+  margin-top: 3.5rem;
 }
 
-.table-title-container {
-  margin: 20px auto;
+.title-row {
   background-color: rgba(255, 255, 255, .8);
-  text-align: center;
   border-radius: 5px;
+  margin:2rem auto;
+  color:#000;
 }
 
-h3.table-title {
-  margin: 5px auto;
-}
+/* CARDS */
 
-.card.w3-hover-shadow {
-  border: none;
-  padding: 0;
-}
-
-.commanderCard {
+.card {
+  position: relative;
+  display: flex;
   max-width: 20%;
-  background-color: black;
+  align-items: center;
+  margin: 0 1%;
+  background-color: #000;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-.card-deck {
+.supp-img,
+.userCard {
+  width:100%;
+}
+
+.table__cards-container {
   justify-content: center;
 }
 
 .card-img-top {
-  position: relative;
-  margin: 0;
-  padding: 0;
   opacity: 1;
-  transition: .2s ease;
-  backface-visibility: hidden;
-  font-family: medium, 'Montserrat';
-  background-color: black;
 }
 
-.userName {
-  position: absolute;
-  transition: .2s ease;
-  opacity: 0;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
-  font-family: medium, 'Montserrat';
-  font-color: white;
-  background-color: black;
+.end-game {
+  background: radial-gradient(circle, #04508e 45%, #3c77b3);
+  border: #3c77b3;
+  color: #fff;
 }
 
-.card-img-top:hover{
-  cursor: pointer;
-}
 
-.card-img-top.userCard:hover {
-  opacity: 0.3;
-  font-family: medium, 'Montserrat';
-  font-color: white;
-  background-color: black;
-}
-
-.user:hover .userName {
-  opacity: 1;
-  font-family: medium, 'Montserrat';
-  font-color: white;
-  background-color: black;
-}
-
-.game-button-container {
-  margin-top: 50px;
-  text-align: right;
-}
-
-#mtg-modal-btn {
-  background: radial-gradient(circle, #F36A26 65%, #FCB52A);
-  border: #FCB52A;
-}
-
-#mtgModal {
+/* ============== MODAL ============= */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top:0;
   width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,.5);
+}
+
+.modal-content {
+  background-color: #f4f4f4;
+  position: fixed;
+  top:50%;
+  left: 50%;
+  transform:translate(-50%,-50%);
+  padding: 2rem;
+  padding-top: 0;
+  width: 70%;
+  box-shadow: 0 .5rem .8rem 0 rgba(0,0,0,.2), 0 .7rem 2rem 0 rgba(0,0,0,.17);
+}
+
+.modal-content header {
+  font-size: 2rem;
+  justify-content: flex-end;
+  padding:.5rem;
+  color: #000;
 }
 
 .modal-title {
-  position: absolute;
-  color: black;
-  width: 100%;
+  flex: 1;
   text-align: center;
 }
 
-.modal-body {
-  color: black;
+.modal-content header .button {
+  background: transparent;
+  border: none;
+  font-size: 3rem;
 }
 
-.row.cardDeck {
-  width: 100%;
+.modal-body {
+  padding:2rem;
+}
+
+.modal-card-image {
+  max-width:36rem;
+  margin: 0 auto;
+}
+
+.modal-card-image img {
+  width:100%;
+}
+
+.table-content {
+  width: 70%;
+}
+
+.top-close {
+  border: none;
+  font-size: 2rem;
+  display: flex;
+  background: transparent;
+  height: 3rem;
+  flex-direction: column;
+  justify-content: flex-start;
+  outline: none;
+}
+
+.button.close {
+  background: radial-gradient(circle, #5f7747, #374d27);
+  border: 2px solid #374d27;
+  color: #fff;
+  box-shadow: 0 2px 8px #000;
+  outline: none;
+}
+
+.modal__commander-select {
+  width:100%;
+}
+
+.pointsRow h4 {
+  margin: 0 1.5rem;
+  width: 12%;
   text-align: center;
 }
 
 .btn-circle {
   width: 25px;
   height: 25px;
-  padding: 0px;
-  padding-top: 4px;
   border-radius: 15px;
+  position: relative;
+  font-size: 2rem;
+  background-color: transparent;
+  border:none;
 }
 
-.row.pointsRow {
-  justify-content: center;
+.btn-circle.minus-point span {
+  color: #bf212e;
 }
 
-h4.playerPoints.points {
-  /* justify-content: center; */
-  width: 30px;
+.btn-circle.add-point span {
+  color: #1b980b;
 }
 
-.modal-header {
-  margin: 0;
-}
-
-.modal-card-image {
-  text-align: center;
-}
-
-.modal-card-image > img {
-  height: 505px;
-  width: 360px;
-}
-
-.custom-control.commander-names{
-  margin: 0 auto;
-}
-
-h3.modal-table-title {
-  text-align: center;
-  color: #fff;
-  background: #000;
-  padding: 5px;
-}
-
-.game-footer.footer-modal {
-  padding: 0 15px;
-}
-
-#modal-close {
-  background: radial-gradient(circle, #5f7747, #374d27);
-  border: #374d27;
-  color: #fff;
-  opacity: 1;
-  padding: .375rem .75rem;
-  border-radius: .25rem;
-  text-shadow: none;
-  font-weight: normal;
-  line-height: 1.5;
-  font-size: 1.25em;
+button#modal-close:active {
+  transform: scale(.95) translateY(2px);
+  box-shadow: 0 1px 8px 2px #000;
 }
 
 /* ============= MEDIA QUERIES ============= */
 
 @media screen and (max-width: 575.98px) {
-
+  .modal-body {
+    padding: 2rem 0;
+  }
+  .modal-content {
+    width:100%;
+  }
+  .table-content {
+    width: 100%;
+  }
+  .modal_col {
+    width:33.33333%;
+  }
 }
 
 @media screen and (min-width: 576px) {
@@ -212,4 +287,65 @@ h3.modal-table-title {
 
 @media screen and (min-width: 992px) {
 
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    max-width: 1140px;
+  }
+
+  .modal-content {
+    width:50%;
+  }
+
+  .modal_col {
+    width:33.33333%;
+  }
+
+  .card:hover {
+    cursor:pointer;
+  }
+
+  .userName {
+    opacity: 0;
+    background-color: #000;
+    font-size:2rem;
+  }
+
+  .commanderCard:hover .userName {
+    color: #fff;
+    opacity:1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    padding:2rem;
+  }
+
+  .commanderCard:hover .card-img-top {
+    opacity: .3;
+  }
+}
+
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(-151rem) rotateX(89deg);
+  }
+
+  70% {
+    transform: translateX(20rem) rotateX(-30deg);
+  }
+
+  80% {
+    transform: translateX(-10rem) rotateX(15deg);
+  }
+
+  90% {
+    transform: translateX(5rem) rotateX(-8deg);
+  }
+
+  100% {
+    transform: translateX(0) rotateX(0deg);
+  }
 }

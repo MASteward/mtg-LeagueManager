@@ -1,43 +1,42 @@
+// var leagueData = JSON.parse(localStorage.getItem("data"));
+var magicCommanders = JSON.parse(localStorage.getItem("mtgCommanders"));
+console.log("Commanders", magicCommanders);
 
 $(document).ready(function() {
-
-  var magicCommanders = JSON.parse(localStorage.getItem("mtgCommanders"));
-
+  var count = 1;
   var leagueData = {};
+  var playerCount = 0;
   var pendingDelete;
 
   getLeague();
-
-//==============================================================================
-//                              GENERATE PAGE
-//==============================================================================
-
-//============================ GET LEAGUE DATA =================================
-
+//================================================================
+//                              PAGE LAYOUT
+//================================================================
   function getLeague() {
-    $.get("/api/league_info").then(function(leagueInfo) {
-      leagueData = leagueInfo;
-      getLeagueName(leagueData);
+    $.get("/api/league_info").then(function(data) {
+        leagueData = data;
+        console.log("League Info", data);
+        getLeagueName(data);
     });
   }
 
-//============================== LEAGUE NAME ===================================
+// ==================== LEAGUE NAME ====================
 
   function getLeagueName(data) {
-    var league_name = data.leagueName;
-    var playerData = data.Players;
-    $(".brand-logo").text(league_name);
-    $("#leagueName").text(league_name);
-
+    nameOfLeague = data.leagueName;
+    // $(".brand-logo").text(nameOfLeague);
+    $("#leagueName").text(nameOfLeague);
+    var playerData = leagueData.Players;
     $(".playerList").empty();
     pendingDelete = "";
 
     playersList(playerData);
   }
 
-//======================= RESET & CREATE PLAYER LIST ==========================
+//================== RESET & CREATE PLAYERS LIST =================
 
   function playersList(playerInfo) {
+    console.log("pendingDelete", pendingDelete);
     var playerArea = $(".playerList");
 
     $.each(playerInfo, function(index, player) {
@@ -46,7 +45,7 @@ $(document).ready(function() {
     });
   }
 
-//=========================== RESET PLAYER DATA ================================
+// ==================== RESET PLAYER DATA ====================
 
   function resetPlayerData(player) {
     var resetData = {
@@ -63,41 +62,40 @@ $(document).ready(function() {
     })
   }
 
-//==============================================================================
-//                           PLAYER LIST CREATION
-//==============================================================================
 
-
-//============================= RENDER PLAYER ==================================
+// ==================== RENDER PLAYER ====================
 
   function renderPlayer(player) {
     var newRow = $("<div class='row player-list-item'>");
     createCheckbox(newRow, player);
     listPlayer(newRow, player);
+    // added player to commandersList to see about drop down, check adding new player in setup;
     commandersList(newRow, player);
     pointsCounter(newRow, player);
     deleteBtn(newRow, player);
     $(".playerList").append(newRow);
+    count++;
   };
 
-//============================ DYNAMIC CHECKBOX ================================
-  // creates checkbox used to decipher between who is playing and who is not.
+// ==================== DYNAMIC CHECKBOX ====================
+
   function createCheckbox(row, player) {
-    var checkbox = $("<div class='col-1 input-group-prepend playerCheck div-checkbox'><input type='checkbox' class='input-checkbox playerCheck' data-id="+ player.id +"></div>");
+    // var checkbox = $("<div class='col-1 input-group-prepend playerCheck div-checkbox'><input type='checkbox' class='input-checkbox playerCheck' data-id="+ player.id +"></div>");
+    var checkbox = $("<div class='col div-checkbox'><input type='checkbox' class='input-checkbox' data-id="+ player.id +"></div>");
     $(row).append(checkbox);
   }
 
-//=========================== DYNAMIC PLAYERS NAME =============================
-  // shows player's name within row of associated data
+//================== DYNAMIC PLAYERS NAME ====================
+
   function listPlayer(row, player) {
-    var name = $("<div class='col-4 member player'><h4 class='name-of-player'>"+ player.playerName+ "</h4></div>");
+    var name = $("<div class='col member'><h4 class='name-of-player'>"+ player.playerName+ "</h4></div>");
     $(row).append(name);
   }
 
-//======================== DYNAMIC COMMANDER SELECTOR ==========================
-  // creates the option select for commander selection
+//================== DYNAMIC COMMANDER SELECTOR ==================
+
   function commandersList(row) {
-    var commContainer = $("<div class='col-4 commander'>");
+    var commContainer = $("<div class='col commander'>");
     var selector = $("<select class='custom-select commander-names' name='selector'>");
     $.each(magicCommanders, function(index, leader) {
       selector.append("<option value="+ index +">"+ leader.name +"</option>");
@@ -106,50 +104,40 @@ $(document).ready(function() {
     $(row).append(commContainer);
   }
 
-//========================= DYNAMIC POINTS COUNTER =============================
-  // shows the player's points
+// ==================== DYNAMIC POINTS COUNTER ===================
+
   function pointsCounter(row, player) {
     var addPoint = $("<i class='ion-plus-circled'>");
     var minusPoint = $("<i class='ion-ios-minus-outline'>");
-    var playerPoints = $("<div class='col-2 member-points'><h4 class='playerPoints points'>"+ player.points + "</h4></div>");
+    var playerPoints = $("<div class='col member-points'><h4 class='playerPoints points'>"+ player.points + "</h4></div>");
     $(row).append(playerPoints);
   }
 
-//========================= DYNAMIC DELETE BUTTON ==============================
-  // creates a button to delete player from league
   function deleteBtn(row, player) {
-    var deleteDiv = $("<div class='col-1 deletePlayer'>");
+    var deleteDiv = $("<div class='col deletePlayer'>");
     var deleteBtn = $("<button type='button' data-toggle='modal' data-target='#delete-modal' class='delete btn-circle' data-id="+ player.id +"><span class='ion-ios-trash trash-btn'></span></button>");
     deleteDiv.append(deleteBtn);
     row.append(deleteDiv);
   }
 
-//==============================================================================
-//                              ADD NEW PLAYER
-//==============================================================================
+// ==================== CLICK-EVENT ADD PLAYER ===================
 
-//======================== CLICK-EVENT ADD PLAYER ==============================
-  // when the add player button is clicked, grab data from input box and make sure it is not blank
-  $("#addPlayer").click(function(event) {
+  $("#addPlayer").on("click", function(event) {
     event.preventDefault();
     var newPlayer = $(".playerName-input");
     if (newPlayer.val().trim()) {
-      if (newPlayer.hasClass("is-invalid")) {
-        newPlayer.removeClass("is-invalid");
-      }
       preparePlayerInfo(newPlayer)
     } else {
-      newPlayer.addClass("is-invalid")
       console.log("cannot be blank");
     }
   });
 
-//====================== PREP PLAYER ADDITION INFO =============================
-  // organizes the data for a new player before being sent to be stored in database
+// ================== PREP PLAYER ADDITION INFO ==================
+
   function preparePlayerInfo(newPlayer) {
     newPlayerObj = {
       playerName: newPlayer.val().trim(),
-      commander: null,
+      commander: 0,
       points: 0,
       LeagueId: leagueData.id
     };
@@ -158,8 +146,8 @@ $(document).ready(function() {
     addPlayer(newPlayerObj);
   };
 
-//============================ ADD NEW PLAYER ==================================
-  // add the new player to the database
+  // ================= ADDING PLAYER TO DATABASE =================
+
   function addPlayer(playersData) {
     $.post("/api/player", playersData).then(function(newPlayerData) {
       renderPlayer(newPlayerData);
@@ -167,26 +155,24 @@ $(document).ready(function() {
     });
   };
 
-//==============================================================================
-//                            CHECKBOX EVENTS
-//==============================================================================
+  // ============================================================
+  //                    CHECKBOX CLICK EVENTS
+  // ============================================================
 
+  // ================== CHECKBOX IS CLICKED =====================
 
-//=========================== CHECKBOX CLICKED =================================
-  // when a checkbox is clicked, check to see if they are all clicked...
   $(document).on("click", ".input-checkbox", function() {
     checkAll();
   })
 
-//====================== CHECK-ALL CHECKBOCK CLICKED ===========================
-  // when the check-all checkbox is clicked, toggle all to checked or unchecked
+  // ================= CHECK ALL BOX IS CLICKED =================
+
   $(document).on("click", "#playingGame", function() {
     $(".input-checkbox").prop("checked", $(this).prop("checked"));
   });
 
-//=========================== CHECK-ALL CHECK ==================================
-  // if all checkboxes are clicked, check the check-all checkbox.
-  // if all are not checked, make sure the check-all checkbox is not checked
+   // =========== EVAL CHECKALL & COMPARE CHECKBOXES ============
+
   function checkAll() {
     var allRows = leagueData.Players.length;
     var allChecked = $("#playingGame");
@@ -206,36 +192,15 @@ $(document).ready(function() {
     }
   }
 
-//============================== DELETE PLAYER =================================
-  // when the delete player button is clicked, store player's id in the pendingDelete variable
-  $(document).on("click", ".delete", function() {
-    pendingDelete = $(this).data("id");
-    console.log("DELETE", pendingDelete);
-  });
+  // ================ START GAME BUTTON CLICKED =================
 
-//======================== VERIFY DELETE PLAYER MODAL ==========================
-  // if the user chooses to delete player, delete from database
-  $("#delete-modal").on("click", ".delete-player", function() {
-    $.ajax({
-      method: "DELETE",
-      url: "/api/player/" + pendingDelete
-    }).then(getLeague);
-  });
-
-
-//==============================================================================
-//                            START AND PREP GAME
-//==============================================================================
-
-//========================= START GAME BUTTON CLICK ============================
-  // when the user clicks the start game button...
   $(document).on("click", "#startGame",function(event) {
     event.preventDefault();
     whosePlaying();
   });
 
-//============================= WHOSE PLAYING ==================================
-  // collect all data from those checked as playing game and store in an object and add to an array
+    // ============= GET ALL DATA FROM ROWS CHECKED =============
+
   function whosePlaying() {
     var gamePlayers = [];
     $(".input-checkbox").each(function() {
@@ -252,12 +217,12 @@ $(document).ready(function() {
     })
     var gameSize = gamePlayers.length;
     playerCount = gameSize;
-    // verify that more than one person is playing
     if (gameSize <= 1) {
-      $("#alert").removeClass("d-none");
+      $(".player-amount-warning").css('display', 'block');
       console.log("must be more than one");
       return;
     } else {
+      $(".player-amount-warning").css('display', 'none');
       console.log("more than 1", gameSize);
       getGamesAndTables(gameSize);
       // add gameSize to updatePlayers to keep count of updated players
@@ -265,9 +230,8 @@ $(document).ready(function() {
     }
   };
 
-//======================= STORE GAME AND TABLE AMOUNT ==========================
-  // grab the total amount of games user wants to play and the amount of tables (based on player amount)
-  // and store in local storage for next page to use
+  // ================== GET GAMES AND TABLES ====================
+
   function getGamesAndTables(gameSize) {
     var tableAmount = generateTables(gameSize);
     var gameCount = $("#gameSelect").val().trim();
@@ -280,8 +244,8 @@ $(document).ready(function() {
     localStorage.setItem("gameData", JSON.stringify(gameData));
   };
 
-//========================== GENERATE TABLE AMOUNT =============================
-  // based on the amount of players playing, determine how many tables are needed
+  // ==================== GENERATE TABLES ======================
+
   function generateTables(quantity) {
     if (quantity < 4) {
       tables = 1;
@@ -297,8 +261,8 @@ $(document).ready(function() {
     return tables;
   }
 
-//============================== UPDATE PLAYERS ================================
-  // update the player database of those who are playing in the games
+  // =========== UPDATE DATABASE W/ PLAYERS PLAYING =============
+
   function updatePlayerStatus(activePlayers, gameSize) {
     $.each(activePlayers, function(index, player) {
       $.ajax({
@@ -313,26 +277,30 @@ $(document).ready(function() {
     });
   };
 
-//================================ LOAD GAME ===================================
-  // load the game page
   function loadGame() {
     window.location.replace("/game");
   }
 
+// =========== MODAL ==============
 
-//==============================================================================
-//                             GENERATE BACKGROUND
-//==============================================================================
+  $(document).on("click", ".delete", function() {
+    pendingDelete = $(this).data("id");
+    console.log("DELETE", pendingDelete);
+    $("#delete-modal").css({"visibility":"visible"});
+  });
 
-//================================ BACKGROUND ==================================
+  $(".modal").on("click", ".cancel", function() {
+    console.log("hide");
+    $("#delete-modal").css({"visibility":"hidden"});
+  })
 
-  var images = ["mtg-portrait-blue2.jpg", "mtg-portrait-red2.jpg", "mtg-portrait-gold2.jpg", "mtg-portrait-purple2.jpg", "mtg-portrait-green2.jpg"];
-  var screenSize = Math.floor((Math.random() * images.length) + 1);
-  var background = images[screenSize];
-  if (screen.height > screen.width) {
-    $("body").css("background-image", "url(./images/backgrounds/" + background + ")");
-  } else {
-    $("body").css("background-image", "url(./images/backgrounds/mtg-landscape-wallpaper.jpg)");
-  }
+  $("#delete-modal").on("click", ".delete-player", function() {
+    $.ajax({
+      method: "DELETE",
+      url: "/api/player/" + pendingDelete
+    }).then(getLeague);
+    $("#delete-modal").css({"visibility":"hidden"});
+  });
+
 
 });

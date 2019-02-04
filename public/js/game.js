@@ -8,45 +8,46 @@ $(document).ready(function() {
   var leagueData = {};
   var players = [];
   var supplementalCards = [];
-  var tableAmount = gameData.tables;
-  var gameCount = gameData.games;
+  var table_amount = gameData.tables;
+  var game_amount = gameData.games;
   var gameOver = false;
   var playerRows = [];
 
-//==============================================================================
-//                            DATABASE RETRIEVAL
-//==============================================================================
+//===============================================================
+                    /* DATABASE RETRIEVAL */
+//===============================================================
 
-//========================= GET SUPPLEMENTAL CARDS =============================
+//=================== GET SUPPLEMENTAL CARDS ====================
 
   $.get("api/supplemental").then(function(cards) {
     supplementalCards = shuffle(cards);
     createSupCards(supplementalCards);
   });
 
-//=========================== GET CHECKED PLAYERS ==============================
+//==================== GET CHECKED PLAYERS =======================
 
   $.get("api/gamers_info/").then(function(data) {
     leagueData = data;
     var players = data.Players;
-    createTables(tableAmount);
+    createTables(table_amount);
     shuffleAndAssign(players);
   });
 
-//==============================================================================
-//                                GAME SETUP
-//==============================================================================
+// ===============================================================
+//                          GAME SETUP
+//================================================================
 
-//============================ NEXT GAME CLICK =================================
+// ====================== NEXT GAME CLICK ========================
 
   $(document).on("click", "#mtg-modal-btn", function() {
     console.log("playerEnd", players);
   })
 
-//========================== START GAME (SETUP) ================================
+//======================= START GAME (SETUP) ========================
   // created another function to start next game so card array wouldn't be reshuffled and same cards appear.
+
   function startGame(players) {
-    createTables(tableAmount);
+    createTables(table_amount);
     shuffleAndAssign(players);
     createSupCards(supplementalCards)
   }
@@ -55,19 +56,26 @@ $(document).ready(function() {
 
   function shuffleAndAssign(players) {
     var shuffledPlayers = shuffle(players);
-    assignTables(tableAmount, shuffledPlayers);
+    assignTables(table_amount, shuffledPlayers);
   }
 
 //========================= SHUFFLE PLAYER ARRAY ===============================
 
   function shuffle(array) {
+    // temporaryValue and randomIndex are undefined values.
     var currentIndex = array.length, temporaryValue, randomIndex;
-    // While there remain elements to shuffle...
+
+    /*
+      While there remain elements to shuffle, pick a remaining element (randomIndex) and swap it with the current element by storing the array value = to the current index in temporaryValue.
+
+      Replace the array value at the index = currentIndex with the array value at the randomIndex.
+
+      Replace the array value at the randomIndex w/ the array pre-replaced value that was at the current index
+    */
+
     while (0 !== currentIndex) {
-      // Pick a remaining element...
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex -= 1;
-      // And swap it with the current element.
       temporaryValue = array[currentIndex];
       array[currentIndex] = array[randomIndex];
       array[randomIndex] = temporaryValue;
@@ -79,11 +87,11 @@ $(document).ready(function() {
 
   function assignTables(tables, playerArray) {
     var counter = 1
-    var playerCard = true;
+    var forPlayer = true;
     $.each(playerArray, function(index, player) {
       var id = player.commander;
-      var card = createCard(playerCard);
-      var cardImage = createImage(card, magicCommanders[id], playerCard);
+      var card = createCard(forPlayer);
+      var cardImage = createImage(card, magicCommanders[id], forPlayer);
       var cardBody = createBody(card, player);
       $("div[data-table="+counter+"]").append(cardBody);
       playerArray[index].assignedTable = counter;
@@ -98,7 +106,7 @@ $(document).ready(function() {
 //======================== CREATE SUPPLEMENTAL CARDS ===========================
 
   function createSupCards(gameDeck) {
-    var gameSet = gameCount * 5;
+    var gameSet = game_amount * 5;
     console.log("gameSet", gameSet);
     console.log("gameDeck", gameDeck);
 
@@ -110,10 +118,10 @@ $(document).ready(function() {
     }
   }
 
-//============================ CREATE PLAYER CARD ==============================
+//====================== CREATE PLAYER CARD =====================
 
-  function createCard(playerCard) {
-    if (playerCard) {
+  function createCard(forPlayer) {
+    if (forPlayer) {
       return $("<div class='col user commanderCard card w3-hover-shadow' data-toggle='modal' data-target='#mtgModal'>");
     } else {
       return $("<div class='col user suppCard card w3-hover-shadow' data-toggle='modal' data-target='#mtgModal'>");
@@ -122,9 +130,9 @@ $(document).ready(function() {
 
 //=========================== CREATE COMMANDER IMAGE ===========================
 
-  function createImage(card, cardData, playerCard) {
-    // SEPARATE CLASSIFICATION OF SUPPLEMENTAL CARDS AND PLAYER CARDS (for CSS styling)
-    if (playerCard) {
+  function createImage(card, cardData, forPlayer) {
+    // Differentiate between supplemental cards and player cards (for CSS styling)
+    if (forPlayer) {
       var picture = $("<img class='card-img-top userCard' src=" + cardData.source + " alt=" + cardData.name + ">");
     } else {
       console.log("suppCard2");
@@ -145,115 +153,132 @@ $(document).ready(function() {
 //============================ CREATE CARD TABLES ==============================
 
   function createTables(tables, modal) {
-    // DETERMINE WHETHER THE TABLES ARE FOR THE MODAL OR GAME PAGE
-    // IF MODAL IS TRUE, IT IS FOR THE MODAL
+    // Determine whether the tables are for the modal or the game page
+
+    // If modal is true, it is for the modal
     for (var i = 1; i <= tables; i++) {
       if (modal) {
-        var titleRow = $("<div class='row modalRow'>");
-        var tableNumber = $("<div class='col-12 title-container'><h3 class='modal-table-title'> Table " + [i] + "</h3></div>");
-        var tableInfo = $("<div class='row cardDeck'>");
-        var tableContent= $("<div class='col-12 modal-deck' data-modal-table="+[i]+">");
-        titleRow.append(tableNumber);
-        tableInfo.append(tableContent);
-        titleRow.append(tableInfo);
-        $(".table-content").append(titleRow);
+        var row = $("<section class='modal__table'>");
+        var table_number = $("<div class='row modal__title'><h3 class='secondary-title'> Table " + [i] + "</h3></div>");
+        var tableContent= $("<div class='modal__table-players' data-modal-table="+[i]+">");
+        row.append(table_number);
+        row.append(tableContent);
+        // row.append(tableInfo);
+        $(".table-content").append(row);
       } else {
+
         // IF IT IS FOR THE GAME PAGE...
-        var titleRow = $("<div class='row title-row'>");
-        var tableNumber = $("<div class='col-12 table-title-container'><h3 class='table-title'> Table " + [i] + "</h3></div>");
-        var tableInfo = $("<div class='row card-deck-row'>");
-        var tableContent = $("<div class='col-12 card-deck' data-table="+[i]+">");
-        titleRow.append(tableNumber);
-        tableInfo.append(tableContent);
-        titleRow.append(tableInfo);
-        $(".tableSection").append(titleRow);
+        var table_section = $("<section class='table'>");
+        var table_number = $("<div class='row title-row'><h3 class='table-title tertiary-title'> Table " + [i] + "</h3></div>");
+        var card_container = $("<div class='row table__cards-container' data-table="+[i]+">");
+        table_section.append(table_number);
+        table_section.append(card_container);
+        $(".tables_section").append(table_section);
       }
     };
   }
 
-//================================ GAME MODAL ==================================
+  //==============================================================
+  //                          GAME MODAL
+  //==============================================================
 
+  // If a card is clicked on
   $(document).on("click", ".card-img-top", function() {
-    var displayCard = $(this).attr("src");
-    var cardName = $(this).attr("alt");
-    modalCard(displayCard, cardName);
+    console.log("Image Clicked");
+    var image_url = $(this).attr("src");
+    var card_name = $(this).attr("alt");
+
+    modalCard(image_url, card_name);
   });
 
-//============================ CREATE MODAL CARD ===============================
-
-  function modalCard(card, name) {
-    var cardImage = $("<div class='modal-card-image'><img src=" + card + " alt=" + name + "></div>");
+  function modalCard(image, name) {
+    var card_image = $("<div class='modal-card-image'><img src=" + image + " alt=" + name + "></div>");
     clearModal();
     $("#title").text(name);
-    $(".table-content").append(cardImage);
-    $(".modal-footer").css("visibility", "hidden");
+    $(".table-content").append(card_image);
+    $(".modal_footer").css("visibility", "hidden");
+    $("#mtgModal").css("display", "block");
   };
-
-//=============================== CLEAR MODAL ==================================
 
   function clearModal() {
     $("#title").empty();
     $(".table-content").empty();
-    $(".modal-footer").css("visibility", "visible");
+    $(".modal_footer").css("visibility", "visible");
   }
-
-//============================= CLEAR GAME PAGE ================================
 
   function clearBoard() {
     $(".supp-cards").empty();
-    $(".tableSection").empty();
+    $(".tables_section").empty();
   }
 
   $(document).on("click", ".close", function(){
+    $("#mtgModal").css("display", "none");
     clearModal();
   })
 
 
-  $(document).on("click", "#mtg-modal-btn", function() {
-    gameCount--
-    modalInfo = true;
+  $(document).on("click", ".end-game", function() {
+    console.log("MTG Modal Btn");
+    clearBoard();
+    game_amount--
+    forModal = true;
 
-    if (gameCount == 0) {
+    if (game_amount == 0) {
       gameOver = true;
       $("#modal-close").text("Finished");
     } else {
       $("#modal-close").text("Next Game")
     }
-    createTables(tableAmount, modalInfo)
-    organizeAndDisplay()
+    createTables(table_amount, forModal);
+    organizeAndDisplay();
     console.log("playerEnd", players);
   });
 
-//========================== ORGANIZE AND DISPLAY ==============================
+// ====================== PLAYERS MODAL ========================
+  function players_modal(table_data) {
+    for (var i = 1; i <= tables; i++) {
+      var row = $("<section class='modal__table'>");
+      var table_number = $("<div class='row modal__title'><h3 class='secondary-title'> Table " + [i] + "</h3></div>");
+      var tableContent= $("<div class='modal__table-players' data-modal-table="+[i]+">");
+      row.append(table_number);
+      row.append(tableContent);
+      // row.append(tableInfo);
+      $(".table-content").append(row);
+    }
+  }
+
+
+//===================== ORGANIZE AND DISPLAY =====================
 
   function organizeAndDisplay() {
     playerRows = [];
     $.each(players, function(index, player) {
-      var newRow = $("<div class='row player-list-item'>");
-      listPlayer(newRow, player);
-      commandersList(newRow, player, index);
-      pointsCounter(newRow, player, index);
-      playerRows.push(newRow)
-      $("div[data-modal-table="+player.assignedTable+"]").append(newRow);
-    })
+      var player_data = $("<div class='row modal__player-data'>");
+      listPlayer(player_data, player);
+      commandersList(player_data, player, index);
+      pointsCounter(player_data, player, index);
+      playerRows.push(player_data)
+      $("div[data-modal-table="+player.assignedTable+"]").append(player_data);
+    });
+    $("#mtgModal").css("display", "block");
     console.log("playerRows", playerRows);
   };
 
 
-//=========================== MODAL PLAYER NAMES ===============================
+//===================== MODAL PLAYER NAMES =====================
 
   function listPlayer(row, player) {
     // console.log("listPlayer", player);
-    var name = $("<div class='col-4 member player'><h4 class='name-of-player'>"+ player.playerName+ "</h4></div>");
+    var name = $("<h4 class='modal_col modal__player'>"+ player.playerName + "</h4>");
     row.append(name);
   }
 
-// ======================= MODAL COMMANDER SELECTOR ============================
+// ================= MODAL COMMANDER SELECTOR ====================
 
   function commandersList(row, player, id) {
-    var commContainer = $("<div class='col-5 commander'>");
+    var commContainer = $("<div class='modal_col modal__commander'>");
     var currentCommander = player.commander;
-    var selector = $("<select class='custom-select commander-names' data-commander="+ id +" name='selector'>");
+    var selector = $("<select class=' modal__commander-select' data-commander="+ id +" name='selector'>");
     $.each(magicCommanders, function(index, leader) {
       if (index == 0) {
         selector.append("<option class='option' value="+ currentCommander +">"+ magicCommanders[currentCommander].name +"</option>");
@@ -267,14 +292,14 @@ $(document).ready(function() {
     row.append(commContainer);
   }
 
-//============================== MODAL POINTS ==================================
+//======================= MODAL POINTS ==========================
 
   function pointsCounter(row, player, index) {
     var addition = $("<button type='button' class='btn btn-circle add-point' data-id="+ index +"><span class='ion-plus-circled'></span></button>");
     var minusPoint = $("<button type='button' class='btn btn-circle minus-point'><span class='ion-ios-minus-outline'></span></button");
     var points = $("<h4 class='playerPoints points' data-id="+ index +" value="+ player.points +">"+ player.points +"</h4>");
     var pointsRow = $("<div class='row pointsRow'></div>");
-    var playerPoints = $("<div class='col-3 member-points'></div>");
+    var playerPoints = $("<div class='modal_col modal__points'></div>");
     pointsRow.append(minusPoint);
     pointsRow.append(points);
     pointsRow.append(addition);
@@ -282,7 +307,7 @@ $(document).ready(function() {
     row.append(playerPoints);
   }
 
-//============================== ADD POINTS ====================================
+//========================= ADD POINTS ===========================
 
   $(document).on("click", ".add-point", function() {
     var adding = true;
@@ -291,7 +316,7 @@ $(document).ready(function() {
     $("h4[data-id="+ playerId +"]").html(players[playerId].points);
   });
 
-//=========================== SUBTRACT POINTS ==================================
+//======================= SUBTRACT POINTS ========================
 
   $(document).on("click", ".minus-point", function() {
     var playerId = $(this).siblings("h4").data("id");
@@ -299,7 +324,7 @@ $(document).ready(function() {
     $("h4[data-id="+ playerId +"]").html(players[playerId].points);
   })
 
-//========================= UPDATE MODAL POINTS ================================
+//==================== UPDATE MODAL POINTS =======================
 
   function updatePoints(id, add) {
     if (add) {
@@ -311,9 +336,15 @@ $(document).ready(function() {
   }
 
   $(document).on("click", "#modal-close", function() {
+    console.log("MODAL CLOSED");
     var nextGameArray = [];
     var playerCount = players.length;
     $.each(players, function(index, player) {
+      console.log("PLAYER NAME", player.playerName);
+      // var theCommander = playerRows[index].closest("select").val();
+      // console.log("commander", theCommander);
+      // var myCommander = playerRows[index].children().children("div.commander").children("select").val();
+      // console.log("mycom", myCommander);
       var theCommander = playerRows[index].find(".commander-names").val();
       console.log("theCommander", theCommander);
       var currentData = {
@@ -328,8 +359,6 @@ $(document).ready(function() {
     players = nextGameArray;
     updateGameData(nextGameArray, playerCount);
   });
-
-//========================== UPDATE PLAYERS INFO ===============================
 
   function updateGameData(updatedData, playerCount) {
     $.each(updatedData, function(index, player) {
@@ -349,23 +378,23 @@ $(document).ready(function() {
     });
   };
 
-//============================== START NEXT GAME ===============================
-
   function loadGame() {
     clearBoard();
     startGame(players);
   }
 
 
-//================================ BACKGROUND ==================================
+ //================================ BACKGROUND =================================
 
-  var images = ["mtg-portrait-blue2.jpg", "mtg-portrait-red2.jpg", "mtg-portrait-gold2.jpg", "mtg-portrait-purple2.jpg", "mtg-portrait-green2.jpg"];
+  var images = ["mtg-portrait-blue3.jpg", "mtg-portrait-red3.jpg", "mtg-portrait-gold3.jpg", "mtg-portrait-purple3.jpg", "mtg-portrait-green3.jpg"];
   var screenSize = Math.floor((Math.random() * images.length) + 1);
   var background = images[screenSize];
   if (screen.height > screen.width) {
+    // console.log("portrait");
     $("body").css("background-image", "url(./images/backgrounds/" + background + ")");
   } else {
-    $("body").css("background-image", "url(./images/backgrounds/mtg-landscape-wallpaper.jpg)");
+    // console.log("landscape");
+    $("body").css("background-image", "url(./images/backgrounds/mtg-landscape-wallpaper2.jpg)");
   }
 
 });

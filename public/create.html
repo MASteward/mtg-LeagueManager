@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="icon" href="images/logos/mtg-logo-M-noBg.png">
-  <title>MTG League Manager</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
+  <title>EDH League Manager</title>
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css"> -->
   <link href="https://fonts.googleapis.com/css?family=Expletus+Sans:400,500,700|Montserrat:400,400i,500,500i" rel="stylesheet">
   <link rel="stylesheet" href="css/createLeagueStyle.css">
 
@@ -15,90 +15,71 @@
 </head>
 
 <body>
-  <div class="container-fluid">
-    <div class="row justify-content-between">
-      <nav class="navbar fixed-top navbar-dark">
-        <a class="navbar-brand" href="#">
-            <img src="images/logos/mtg-logo-m-elements.png" width="30" class="d-inline-block align-top w3-card rounded-square" alt="Magic The Gathering Icon"> League Manager
-          </a>
-        <div class="navbar-right">
-          <a role="button" class="btn btn-secondary league-logout" href="/logout">Logout</a>
-        </div>
-      </nav>
+  <header class="navbar">
+    <div class="navbar__logo">
+      <img src="images/logos/mtg-logo-m-elements.png" width="30" class="d-inline-block" alt="Magic The Gathering Icon"> <span class="brand-logo">League Manager</span>
     </div>
-  </div>
+    <div class="navbar__button">
+      <a role="button" class="league-logout button" href="/logout">Logout</a>
+    </div>
+  </header>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <h1>Create League<span class="created-name"></span></h1>
-      </div>
-    </div>
+  <section class="container">
+    <header class="primary-title league-title">
+      <h1 class="league primary-title" id="leagueName">Create League</h1>
+    </header>
 
     <div class="create-league">
       <form class="league-name-form">
-        <div class="row form-group">
-          <div class="col-12 col-md-2 league-label">
-            <label for="league-name" class="leagueName-label"><h4>League Name</h4></label>
-          </div>
-          <div class="col-12 col-md-10 league-input">
-            <input name="league-name" class="form-control leagueName-input" type="text" placeholder="Enter League Name">
-          </div>
+        <label for="league-name" class="row leagueName-label"><h3 class="tertiary-title">League Name</h3></label>
+        <div class="row">
+          <input name="league-name" class="leagueName-input" type="text" placeholder="Enter League Name">
         </div>
+
       </form>
 
       <form class="league-player-form">
-        <div class="row form-group league-player">
-          <div class="col-12 col-md-2 player-label">
-            <label for="player-name" class="playerName-label"><h4>Player Name</h4></label>
-          </div>
-          <div class="col-10 col-md-8 player-input">
-            <input name="player-name" class="form-control playerName-input" type="text" placeholder="Enter Player's Name">
-          </div>
-          <div class="col-2 add-player-btn">
-            <button id="addPlayer" type="submit" class="btn add-player">Add <span class="d-none d-md-inline">Player</span></button>
+        <label for="player-name" class="playerName-label"><h3 class="tertiary-title">Player Name</h3></label>
+        <div class="row add-player-row">
+          <input name="player-name" class="playerName-input" type="text" placeholder="Enter Player's Name">
+          <div class="add-player-btn">
+            <button id="addPlayer" type="submit" class="button add-player">Add</button>
           </div>
         </div>
+
       </form>
-
     </div>
 
-    <div class="row">
-      <div class="col-12 players-list-title">
-        <h4>League Members</h4>
-      </div>
+    <div class="players-list-title">
+      <h2 class="secondary-title">League Members</h2>
     </div>
     <div class="row">
-      <div class="col-md-10 offSet-xs-0 offSet-md-2">
-        <ol class="player-output">
-
-        </ol>
-      </div>
+      <ol class="player-output"></ol>
     </div>
 
-    <div class="row justify-content-end finish-league">
-      <div class="col-12">
-        <button id="nameLeague" type="submit" class="btn btn-primary">Create League</button>
-      </div>
+    <div class="finish-league">
+      <button id="nameLeague" type="submit" class="button btn-primary">Create League</button>
     </div>
 
-  </div>
+  </section>
 
-  <!-- <script type="text/javascript">
-    var images = ["mtg-portrait-blue2.jpg", "mtg-portrait-red2.jpg", "mtg-portrait-gold2.jpg", "mtg-portrait-purple2.jpg", "mtg-portrait-green2.jpg"];
-    var screenSize = Math.floor((Math.random() * images.length) + 1);
+  <script type="text/javascript">
+    var images = ["mtg-portrait-blue3.jpg", "mtg-portrait-red3.jpg", "mtg-portrait-gold3.jpg", "mtg-portrait-purple3.jpg", "mtg-portrait-green3.jpg"];
+    var screenSize = Math.floor((Math.random() * images.length));
+    // took out + 1
+    console.log("background choice:", screenSize);
     var background = images[screenSize];
     if (screen.height > screen.width) {
       console.log("portrait");
       $("body").css("background-image", "url(./images/backgrounds/" + background + ")");
     } else {
       console.log("landscape");
-      $("body").css("background-image", "url(./images/backgrounds/mtg-landscape-wallpaper.jpg)");
+      $("body").css("background-image", "url(./images/backgrounds/mtg-landscape-wallpaper2.jpg)");
     }
-  </script> -->
+  </script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
   <script type="text/javascript" src="js/create.js"></script>
 
 </body>

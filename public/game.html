@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="./images/logos/mtg-logo-M-noBg.png">
-    <title>MTG League Manager</title>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link href="//cdn.jsdelivr.net/npm/keyrune@latest/css/keyrune.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>EDH League Manager</title>
+    <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+    <!-- <link href="//cdn.jsdelivr.net/npm/keyrune@latest/css/keyrune.min.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css"> -->
     <link href="https://fonts.googleapis.com/css?family=Expletus+Sans:400,500,700|Montserrat:400,400i,500,500i" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"> -->
     <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/gameStyle.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -19,89 +19,138 @@
 
   <body>
 
-      <!-- ============= NAVBAR ============== -->
+    <!-- ============= NAVBAR ============== -->
 
-    <div class="container-fluid">
-      <div class="row justify-content-between">
-        <nav class="navbar fixed-top navbar-dark">
-          <div class="navbar-brand">
-            <img src="./images/logos/mtg-logo-m-elements.png" width="30" class="d-inline-block" alt="Magic The Gathering Icon"> <span class="brand-logo"> League Manager</span>
-          </div>
-          <div class="navbar-right">
-            <a role="button" class="btn btn-secondary league-logout" href="/logout">Logout</a>
-          </div>
-        </nav>
+    <header class="navbar">
+      <div class="navbar__logo">
+        <img src="images/logos/mtg-logo-m-elements.png" width="30" class="d-inline-block" alt="Magic The Gathering Icon"> <span class="brand-logo">League Manager</span>
       </div>
-    </div>
+      <div class="navbar__button">
+        <a role="button" class="league-logout button" href="/logout">Logout</a>
+      </div>
+    </header>
 
     <!-- ============= MAIN BODY ============= -->
-    <div class="container">
-      <header class="col-12 title">
-        <h1 class="league-name"></h1>
-      </header>
+    <section class="container">
+      <!-- <header class="primary-title league-title">
+        <h1 class="league-name" id="leagueName"></h1>
+      </header> -->
 
-      <div class="row card-body text-center animated infinte slideInRight" id="supplementalCardsDiv">
-        <div class="col-12">
-          <div class="row">
-            <h3 class="col-12 card-title">Supplemental Cards</h3>
-          </div>
-          <br>
-
-          <div class="row supp-cards card-deck animated infinte flipInX"></div>
+      <section class="supplemental-cards-container" id="supplementalCardsDiv">
+        <div class="row">
+          <h3 class="card-title secondary-title">Supplemental Cards</h3>
         </div>
+        <br>
+
+        <div class="row supp-cards card-deck animated infinte flipInX">
+          <!-- START -->
+          <!-- <div class="col user suppCard card" data-toggle="modal" data-target="#mtgModal">
+            <img class="card-img-top supp-img" src="./images/cards/Sharing.png" alt="Sharing">
+          </div>
+          <div class="col user suppCard card w3-hover-shadow" data-toggle="modal" data-target="#mtgModal">
+            <img class="card-img-top supp-img" src="./images/cards/Braingeyser.png" alt="Braingeyser">
+          </div>
+          <div class="col user suppCard card w3-hover-shadow" data-toggle="modal" data-target="#mtgModal">
+            <img class="card-img-top supp-img" src="./images/cards/ArmyOfTheFaceless.png" alt="Army of the Faceless">
+          </div>
+          <div class="col user suppCard card w3-hover-shadow" data-toggle="modal" data-target="#mtgModal">
+            <img class="card-img-top supp-img" src="./images/cards/EnchantedForVictory.png" alt="Enchanted For Victory">
+          </div>
+          <div class="col user suppCard card w3-hover-shadow" data-toggle="modal" data-target="#mtgModal">
+            <img class="card-img-top supp-img" src="./images/cards/SuperFriends.png" alt="Super Friends">
+          </div> -->
+          <!-- END -->
+        </div>
+      </section>
+
+      <!-- START -->
+
+      <section class="tables_section">
+        <!-- <section class="table">
+          <div class="row title-row">
+            <h3 class="table-title tertiary-title"> Table 1</h3>
+          </div>
+          <div class="row table__cards-container" data-table="1">
+            <div class="col user commanderCard card" data-toggle="modal" data-target="#mtgModal"><img class="card-img-top userCard" src="https://img.scryfall.com/cards/normal/en/cma/111.jpg?1519869364" alt="Freya">
+              <div class="card-body userName w3-black">Brian</div>
+            </div>
+            <div class="col user commanderCard card w3-hover-shadow" data-toggle="modal" data-target="#mtgModal"><img class="card-img-top userCard" src="https://img.scryfall.com/cards/normal/front/f/2/f2f28735-122c-45ba-bde5-decfd9b11b32.jpg?1543699500" alt="Freya">
+              <div class="card-body userName w3-black">Peter</div>
+            </div>
+            <div class="col user commanderCard card w3-hover-shadow" data-toggle="modal" data-target="#mtgModal"><img class="card-img-top userCard" src="https://img.scryfall.com/cards/normal/en/c16/28.jpg?1517813031" alt="Freya">
+              <div class="card-body userName w3-black">Quagmire</div>
+            </div>
+            <div class="col user commanderCard card w3-hover-shadow" data-toggle="modal" data-target="#mtgModal"><img class="card-img-top userCard" src="https://img.scryfall.com/cards/normal/en/arb/124.jpg?1517813031" alt="Freya">
+              <div class="card-body userName w3-black">Chris</div>
+            </div>
+            <div class="col user commanderCard card w3-hover-shadow" data-toggle="modal" data-target="#mtgModal"><img class="card-img-top userCard" src="https://img.scryfall.com/cards/normal/en/cma/111.jpg?1519869364" alt="Freya">
+              <div class="card-body userName w3-black">Brian</div>
+            </div>
+          </div>
+        </section>
+        <section class="table">
+          <div class="row title-row">
+            <h3 class="table-title tertiary-title"> Table 2</h3>
+          </div>
+          <div class="row table__cards-container" data-table="2">
+            <div class="col user commanderCard card w3-hover-shadow" data-toggle="modal" data-target="#mtgModal"><img class="card-img-top userCard" src="https://img.scryfall.com/cards/normal/en/cma/111.jpg?1519869364" alt="Freya">
+              <div class="card-body userName w3-black">Lois</div>
+            </div>
+            <div class="col user commanderCard card w3-hover-shadow" data-toggle="modal" data-target="#mtgModal"><img class="card-img-top userCard" src="https://img.scryfall.com/cards/large/en/cma/111.jpg?1519869364" alt="Freya">
+              <div class="card-body userName w3-black">Stewie</div>
+            </div>
+            <div class="col user commanderCard card w3-hover-shadow" data-toggle="modal" data-target="#mtgModal"><img class="card-img-top userCard" src="https://img.scryfall.com/cards/large/en/cma/111.jpg?1519869364" alt="Freya">
+              <div class="card-body userName w3-black">Meg</div>
+            </div>
+          </div>
+        </section> -->
+      </section>
+        <!-- <div class="row card-deck">
+
+          <br>
+        </div> -->
       </div>
 
-      <div class="row gameCards">
+      <!-- END -->
+
+      <!-- OLD STUFF START -->
+      <!-- <div class="row gameCards">
         <section class="tableSection"></section>
-
-      </div>
-
+      </div> -->
+      <!-- OLD STUFF END -->
       <br>
 
 
       <div class="row">
-        <div class="col-12 game-button-container">
-          <button type="button" id="mtg-modal-btn"class="btn btn-primary" data-toggle="modal" data-target="#mtgModal">End Game</button>
+        <div class="game-button-container">
+          <button type="button" id="mtg-modal-btn" class="end-game button" data-toggle="modal" data-target="#mtgModal">End Game</button>
         </div>
       </div>
+
+      <!-- ==================== MODAL ====================-->
 
       <div class="modal fade" id="mtgModal" tabindex="-1" role="dialog" aria-labelledby="mtgModal" aria-hidden="true">
-        <div class="row">
-          <div class="col-12">
-            <div class="modal-game modal-dialog" role="document">
-              <div class="row">
-                <div class="col-12">
-                  <div class="modal-content">
-                    <div class="row modal-header">
-                      <div class="col-12">
-                        <h5 class="modal-title" id="title"></h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                    </div>
-                    <div class="row modal-body">
-                      <div class="col-12 table-content"></div>
-                    </div>
-                    <div class="row game-footer footer-modal justify-content-end">
-                      <div class=" col-12 modal-footer">
-                        <button type="button" class="btn btn-secondary close" id="modal-close" data-dismiss="modal"></button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <div class="modal-content">
+          <header class="row">
+            <h3 class="modal-title" id="title"></h3>
+            <button type="button" class="top-close close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </header>
+          <div class="row modal-body">
+            <div class="table-content"></div>
           </div>
+          <footer class="row game-footer modal_footer">
+            <button type="button" class="button close" id="modal-close" data-dismiss="modal"></button>
+          </footer>
         </div>
       </div>
-
-    </div>
-
+    </section>
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
     <script type="text/javascript" src="js/setup.js"></script>
     <script src="./js/game.js"></script>
 
