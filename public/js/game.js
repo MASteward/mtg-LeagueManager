@@ -222,6 +222,7 @@ $(document).ready(function() {
     clearBoard();
     game_amount--
     forModal = true;
+    $(".top-close").css("display", "none");
 
     if (game_amount == 0) {
       gameOver = true;
@@ -345,7 +346,7 @@ $(document).ready(function() {
       // console.log("commander", theCommander);
       // var myCommander = playerRows[index].children().children("div.commander").children("select").val();
       // console.log("mycom", myCommander);
-      var theCommander = playerRows[index].find(".commander-names").val();
+      var theCommander = playerRows[index].find(".modal__commander-select").val();
       console.log("theCommander", theCommander);
       var currentData = {
         "id": player.id,
@@ -387,7 +388,7 @@ $(document).ready(function() {
  //================================ BACKGROUND =================================
 
   var images = ["mtg-portrait-blue3.jpg", "mtg-portrait-red3.jpg", "mtg-portrait-gold3.jpg", "mtg-portrait-purple3.jpg", "mtg-portrait-green3.jpg"];
-  var screenSize = Math.floor((Math.random() * images.length) + 1);
+  var screenSize = Math.floor((Math.random() * images.length));
   var background = images[screenSize];
   if (screen.height > screen.width) {
     // console.log("portrait");

@@ -103,16 +103,13 @@ header .navbar__logo span {
   height: 50rem;
   display: flex;
   justify-content: center;
-  /* align-items: center; */
-  /* perspective: 1200px; */
+  align-items: center;
 }
 
 .card {
   width: 28rem;
   height: 35rem;
-  /* transform-style: preserve-3d; */
   position: absolute;
-
   font-family: 'Expletus Sans';
   transition: all 3s;
   padding: 2px;
@@ -236,22 +233,13 @@ header .navbar__logo span {
   }
 }
 
-/* SMALL SCREEN */
-
-/* @keyframes rotateLeft {
-  0% {
-    transform: translate3d(0rem, 0rem, 100px);
-  }
-  100% {
-    transform:translate3d(-17rem, 0rem, -2rem) rotateY(-70deg);
-  }
-} */
-
 
 
 
 
 /* ========== MEDIA QUERIES ============= */
+
+
 @media screen and (max-width: 575.98px) {
   .container {
     perspective: 1200px;
@@ -262,7 +250,6 @@ header .navbar__logo span {
   .card-area {
     transform-style: preserve-3d;
     backface-visibility: hidden;
-    /* transform: translateZ(-40rem); */
     transform: translateZ(-5rem);
     transition: transform 1s;
   }

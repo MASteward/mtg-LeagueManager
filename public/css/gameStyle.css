@@ -85,8 +85,9 @@ header .league-logout {
   color: #fff;
 }
 
-
-/* MAIN SECTION */
+/* ===================================== */
+            /* MAIN SECTION */
+/* ===================================== */
 
 .container {
   position: relative;
@@ -112,16 +113,17 @@ header .league-logout {
   color:#000;
 }
 
-/* CARDS */
+/* =============== CARDS =============== */
 
 .card {
   position: relative;
   display: flex;
-  max-width: 20%;
+  max-width: 18%;
+  width:100%;
   align-items: center;
   margin: 0 1%;
   background-color: #000;
-  border-radius: 10px;
+  border-radius: 3px;
   overflow: hidden;
 }
 
@@ -145,7 +147,10 @@ header .league-logout {
 }
 
 
-/* ============== MODAL ============= */
+/* ================================== */
+              /* MODAL */
+/* ================================== */
+
 .modal {
   display: none;
   position: fixed;
@@ -224,13 +229,46 @@ header .league-logout {
   outline: none;
 }
 
+/* =========== END GAME MODAL =========== */
+.modal__table {
+  margin-bottom: 2.5rem;
+}
+
+.modal__table .modal__title {
+  background-color: #000;
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+.modal__table-players {
+  margin: 0 .5rem;
+}
+
 .modal__commander-select {
-  width:100%;
+  display: inline-block;
+  width: 100%;
+  height: calc(2.25rem + 2px);
+  padding: .375rem 1.75rem .375rem .75rem;
+  line-height: 1.5;
+  color: #495057;
+  vertical-align: middle;
+  background: #fff url("../images/drop-down.png")
+  no-repeat right .75rem center;
+  background-size: 8px 10px;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.row.pointsRow {
+  justify-content: flex-end;
 }
 
 .pointsRow h4 {
-  margin: 0 1.5rem;
-  width: 12%;
+  /* margin: 0 1.5rem; */
+  width: 3rem;
   text-align: center;
 }
 
@@ -271,6 +309,21 @@ button#modal-close:active {
   }
   .modal_col {
     width:33.33333%;
+  }
+
+  .card {
+    flex-direction: column;
+  }
+
+  .userName {
+    background-color: rgba(255,255,255,.85);
+    font-size: 1.3rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  .commanderCard:hover .card-img-top {
+    opacity: .3;
   }
 }
 
