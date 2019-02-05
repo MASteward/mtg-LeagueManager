@@ -185,6 +185,7 @@ $(document).ready(function() {
   // If a card is clicked on
   $(document).on("click", ".card-img-top", function() {
     console.log("Image Clicked");
+    $(".top-close").css("display", "block");
     var image_url = $(this).attr("src");
     var card_name = $(this).attr("alt");
 

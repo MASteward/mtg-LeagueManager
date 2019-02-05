@@ -1,16 +1,16 @@
 -- INSERT INTO Commanders (name, source)
 -- VALUES
--- ("Freya","https://img.scryfall.com/cards/large/en/cma/111.jpg?1519869364"),
--- ("Yahenni","https://img.scryfall.com/cards/large/en/aer/75.jpg?1517813031"),
--- ("Atraxa","https://img.scryfall.com/cards/large/en/c16/28.jpg?1517813031"),
--- ("Nekusar","https://img.scryfall.com/cards/large/en/c13/201.jpg?1517813031"),
--- ("Kaalia","https://img.scryfall.com/cards/large/en/cma/180.jpg?1519870270"),
+-- ("Freya","https://img.scryfall.com/cards/normal/en/cma/111.jpg?1519869364"),
+-- ("Yahenni","https://img.scryfall.com/cards/normal/front/f/2/f2f28735-122c-45ba-bde5-decfd9b11b32.jpg?1543699500"),
+-- ("Atraxa","https://img.scryfall.com/cards/normal/en/c16/28.jpg?1517813031"),
+-- ("Nekusar","https://img.scryfall.com/cards/normal/en/c13/201.jpg?1517813031"),
+-- ("Kaalia","https://img.scryfall.com/cards/normal/en/cma/180.jpg?1519870270"),
 -- ("Zur","https://img.scryfall.com/cards/normal/en/mm3/204.jpg?1517813031"),
 -- ("Jhoira","https://img.scryfall.com/cards/normal/en/dds/1.jpg?1517813031"),
 -- ("Leovold","https://img.scryfall.com/cards/normal/en/cn2/77.jpg?1517813031"),
--- ("Maelstrom Wanderer","https://img.scryfall.com/cards/large/en/pca/101.jpg?1517813031"),
--- ("Karador","https://img.scryfall.com/cards/large/en/cmd/207.jpg?1517813031"),
--- ("Derevi","https://img.scryfall.com/cards/large/en/cma/176.jpg?1519870219"),
+-- ("Maelstrom Wanderer","https://img.scryfall.com/cards/normal/en/pca/101.jpg?1517813031"),
+-- ("Karador","https://img.scryfall.com/cards/normal/en/cmd/207.jpg?1517813031"),
+-- ("Derevi","https://img.scryfall.com/cards/normal/en/cma/176.jpg?1519870219"),
 -- ("Uril","https://img.scryfall.com/cards/normal/en/arb/124.jpg?1517813031");
 --
 -- INSERT INTO Supplementals (name, source)
