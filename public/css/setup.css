@@ -11,6 +11,7 @@ html {
 }
 
 body {
+  background-image: url("../images/background/mtg-landscape-wallpaper2.jpg");
   box-sizing: border-box;
   font-family: 'Expletus Sans';
   background-size: cover;
@@ -333,6 +334,12 @@ span.ion-ios-trash.trash-btn:hover {
   margin: 0 15px;
   display: flex;
   justify-content: space-between;
+}
+
+@media screen and (orientation: portrait) {
+  body {
+    background-image: url("../images/backgrounds/mtg-portrait-purple3.jpg");
+  }
 }
 
 @media screen and (max-width: 575.98px) {

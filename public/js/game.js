@@ -382,15 +382,15 @@ $(document).ready(function() {
 
  //================================ BACKGROUND =================================
 
-  var images = ["mtg-portrait-blue3.jpg", "mtg-portrait-red3.jpg", "mtg-portrait-gold3.jpg", "mtg-portrait-purple3.jpg", "mtg-portrait-green3.jpg"];
-  var screenSize = Math.floor((Math.random() * images.length));
-  var background = images[screenSize];
-  if (screen.height > screen.width) {
-    // console.log("portrait");
-    $("body").css("background-image", "url(./images/backgrounds/" + background + ")");
-  } else {
-    // console.log("landscape");
-    $("body").css("background-image", "url(./images/backgrounds/mtg-landscape-wallpaper2.jpg)");
-  }
+  // var images = ["mtg-portrait-blue3.jpg", "mtg-portrait-red3.jpg", "mtg-portrait-gold3.jpg", "mtg-portrait-purple3.jpg", "mtg-portrait-green3.jpg"];
+  // var screenSize = Math.floor((Math.random() * images.length));
+  // var background = images[screenSize];
+  // if (screen.height > screen.width) {
+  //   // console.log("portrait");
+  //   $("body").css("background-image", "url(./images/backgrounds/" + background + ")");
+  // } else {
+  //   // console.log("landscape");
+  //   $("body").css("background-image", "url(./images/backgrounds/mtg-landscape-wallpaper2.jpg)");
+  // }
 
 });

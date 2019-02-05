@@ -11,6 +11,7 @@ html {
 }
 
 body {
+  background-image: url("../images/background/mtg-landscape-wallpaper2.jpg");
   font-family: 'Expletus Sans';
   box-sizing: border-box;
   background-size: cover;
@@ -159,6 +160,12 @@ form {
 /* // ============================================= */
               /* MEDIA QUERIES  */
 /* // ============================================= */
+
+@media screen and (orientation: portrait) {
+  body {
+    background-image: url("../images/backgrounds/mtg-portrait-green3.jpg");
+  }
+}
 
 @media screen and (max-width: 575.98px) {
   .create-league {

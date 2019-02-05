@@ -11,6 +11,7 @@ html {
 }
 
 body {
+  background-image: url("../images/backgrounds/mtg-landscape-wallpaper2.jpg");
   font-family: 'Expletus Sans';
   background-size: cover;
   background-attachment: fixed;
@@ -297,6 +298,12 @@ button#modal-close:active {
 }
 
 /* ============= MEDIA QUERIES ============= */
+
+@media screen and (orientation: portrait) {
+  body {
+    background-image: url("../images/backgrounds/mtg-portrait-red3.jpg");
+  }
+}
 
 @media screen and (max-width: 575.98px) {
   .modal-body {
