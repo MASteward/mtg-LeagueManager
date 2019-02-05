@@ -272,8 +272,8 @@ span.switch {
   }
 
   .rotate {
-    /* transform: translateZ(-5rem) rotateY(-70deg); */
-    transform: translateZ(-5rem) rotateY(-70deg) translateY(-25%);
+    transform: translateZ(-5rem) rotateY(-70deg);
+    /* transform: translateZ(-5rem) rotateY(-70deg) translateY(-25%); */
   }
 
   .middle {
@@ -289,6 +289,16 @@ span.switch {
 
   .switch {
     font-size: 2.6rem;
+  }
+
+  .switch-arrow {
+    height: 2rem;
+    width: 2rem;
+  }
+
+  .switch-arrow img {
+    width:100%;
+    vertical-align: top
   }
 
   .flip {
