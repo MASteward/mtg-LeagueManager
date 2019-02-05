@@ -244,7 +244,6 @@ $(document).ready(function() {
       var tableContent= $("<div class='modal__table-players' data-modal-table="+[i]+">");
       row.append(table_number);
       row.append(tableContent);
-      // row.append(tableInfo);
       $(".table-content").append(row);
     }
   }
@@ -270,7 +269,6 @@ $(document).ready(function() {
 //===================== MODAL PLAYER NAMES =====================
 
   function listPlayer(row, player) {
-    // console.log("listPlayer", player);
     var name = $("<h4 class='modal_col modal__player'>"+ player.playerName + "</h4>");
     row.append(name);
   }
@@ -343,10 +341,6 @@ $(document).ready(function() {
     var playerCount = players.length;
     $.each(players, function(index, player) {
       console.log("PLAYER NAME", player.playerName);
-      // var theCommander = playerRows[index].closest("select").val();
-      // console.log("commander", theCommander);
-      // var myCommander = playerRows[index].children().children("div.commander").children("select").val();
-      // console.log("mycom", myCommander);
       var theCommander = playerRows[index].find(".modal__commander-select").val();
       console.log("theCommander", theCommander);
       var currentData = {

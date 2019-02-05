@@ -1,7 +1,7 @@
 *,
 *::after,
 *::before {
-  box-sizing: border-box;
+  box-sizing: inherit;
   margin: 0;
   padding: 0;
 }
@@ -19,6 +19,7 @@ body {
   color: #fff;
   font-size: 1.6rem;
   line-height: 1.7;
+  box-sizing: border-box;
 }
 
 hr {
@@ -90,6 +91,10 @@ header .navbar__logo span {
   margin-left:1rem;
 }
 
+/* ================================ */
+          /* CONTENT AREA */
+/* ================================ */
+
 .container {
   position: relative;
   display: flex;
@@ -124,6 +129,7 @@ header .navbar__logo span {
   justify-content: space-between;
   height:100%;
   padding: 2rem;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
 
 .input-group {
@@ -189,10 +195,7 @@ header .navbar__logo span {
   border-radius: 5px;
 }
 
-.signup-card,
-.login-card {
-  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-}
+
 
 .card-footer .alert {
   color: red;
@@ -201,7 +204,7 @@ header .navbar__logo span {
   text-align: center;
 }
 
-.switch {
+span.switch {
   background-color: transparent;
 }
 
@@ -256,17 +259,21 @@ header .navbar__logo span {
 
   .card {
     width: 25rem;
+    top:25%;
   }
 
   .signup-card {
-    transform: rotateY(70deg) translateZ(18rem);
+    /* transform: rotateY(70deg) translateZ(18rem); */
+    transform: rotateY(70deg) translateZ(18rem) translateY(-25%);
   }
   .login-card {
-    transform: rotateY(0deg) translateZ(18rem);
+    /* transform: rotateY(0deg) translateZ(18rem); */
+    transform: rotateY(0deg) translateZ(18rem) translateY(-25%);
   }
 
   .rotate {
-    transform: translateZ(-5rem) rotateY(-70deg);
+    /* transform: translateZ(-5rem) rotateY(-70deg); */
+    transform: translateZ(-5rem) rotateY(-70deg) translateY(-25%);
   }
 
   .middle {
@@ -291,6 +298,53 @@ header .navbar__logo span {
 
   .card-footer button {
     font-size: 2rem;
+  }
+}
+
+@media screen and (min-width: 576px) and (max-width: 991.98px) {
+  .container {
+    /* margin-top:2rem; */
+  }
+  .card-area {
+    position: relative;
+    perspective: 1200px;
+    height:100%;
+  }
+
+  .card {
+    transform-style: preserve-3d;
+    width:26rem;
+    height:30rem;
+  }
+
+  .signup-card {
+    z-index: 0;
+    transform: translate3d(8.5rem, 0rem, 50px) scale(.9) rotateZ(-90deg);
+  }
+
+  .login-card {
+    z-index: 1;
+    transform: translate3d(0rem, 0rem, 100px) scale(1);
+  }
+
+  .input-group {
+    margin-bottom: 2rem;
+  }
+
+  .toFront {
+    z-index: 1;
+    animation: toFront ease-out 2s;
+    transform: translate3d(0rem, 0rem, 100px) scale(1);
+  }
+
+  .toBack {
+    z-index: 0;
+    animation: toBack ease-out 2s;
+    transform: translate3d(8.5rem, 0rem, 50px) scale(.9) rotateZ(-90deg);
+  }
+
+  .middle {
+    display: none;
   }
 }
 
