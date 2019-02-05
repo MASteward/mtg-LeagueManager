@@ -6,11 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="icon" href="images/logos/mtg-logo-M-noBg.png">
-  <title>EDH League Manager</title>
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css"> -->
   <link href="https://fonts.googleapis.com/css?family=Expletus+Sans:400,500,700|Montserrat:400,400i,500,500i" rel="stylesheet">
   <link rel="stylesheet" href="css/createLeagueStyle.css">
-
+  <title>League Manager</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
@@ -62,24 +60,7 @@
     </div>
 
   </section>
-
-  <script type="text/javascript">
-    var images = ["mtg-portrait-blue3.jpg", "mtg-portrait-red3.jpg", "mtg-portrait-gold3.jpg", "mtg-portrait-purple3.jpg", "mtg-portrait-green3.jpg"];
-    var screenSize = Math.floor((Math.random() * images.length));
-    // took out + 1
-    console.log("background choice:", screenSize);
-    var background = images[screenSize];
-    if (screen.height > screen.width) {
-      console.log("portrait");
-      $("body").css("background-image", "url(./images/backgrounds/" + background + ")");
-    } else {
-      console.log("landscape");
-      $("body").css("background-image", "url(./images/backgrounds/mtg-landscape-wallpaper2.jpg)");
-    }
-  </script>
-
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
+  
   <script type="text/javascript" src="js/create.js"></script>
 
 </body>

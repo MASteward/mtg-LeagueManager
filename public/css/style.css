@@ -204,6 +204,10 @@ header .navbar__logo span {
   text-align: center;
 }
 
+.switch {
+  background-color: transparent;
+}
+
 @keyframes toFront {
   0% {
     transform: translate3d(8.5rem, 0rem, 50px) scale(.9) rotateZ(-90deg);
