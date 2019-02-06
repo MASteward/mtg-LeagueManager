@@ -9,7 +9,7 @@
     <link rel="icon" href="images/logos/mtg-logo-M-noBg.png">
     <link href="https://fonts.googleapis.com/css?family=Expletus+Sans:400,500,700|Montserrat:400,400i,500,500i" rel="stylesheet">
     <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/setup.css">
+    <link rel="stylesheet" href="css/main.css">
     <title>League Manager</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
@@ -19,11 +19,16 @@
     <!-- ============= NAVBAR ============== -->
 
     <header class="navbar">
-      <div class="navbar__logo">
-        <img src="images/logos/mtg-logo-m-elements.png" width="30" class="d-inline-block" alt="Magic The Gathering Icon"> <span class="brand-logo"> League Manager</span>
-      </div>
-      <div class="button navbar__button">
-        <a role="button" class="league-logout button" href="/logout">Logout</a>
+      <div class="navbar__container row between">
+        <div class="navbar__logo">
+          <div class="navbar__image-container">
+            <img src="images/logos/mtg-logo-m-elements.png" width="30" class="d-inline-block" alt="Magic The Gathering Icon">
+          </div>
+          <span class="brand-logo"> League Manager</span>
+        </div>
+        <div class="button navbar__button">
+          <a role="button" class="league-logout button" href="/logout">Logout</a>
+        </div>
       </div>
     </header>
 
@@ -39,7 +44,7 @@
         <div class="row around gamesAndPlayers">
           <div class="game_number">
             <div class="select-games">
-              <label for="gameSelect" class="number-games-label"><h4 class="number-games-title">Number of Games</h4></label>
+              <label for="gameSelect" class="number-games-label"><h3 class="tertiary-title number-games-title">Number of Games</h3></label>
             </div>
             <div class="select-row">
               <select class="custom-select" id="gameSelect">
@@ -52,9 +57,9 @@
             </div>
           </div>
             <form class="add-player-form" action="index.html" method="post">
-              <label for="player-addition" class="add-player"><h4 class="add-player-title">Add a Player</h4></label>
+              <label for="player-addition" class="add-player"><h3 class="tertiary-title add-player-title">Add a Player</h3></label>
 
-              <div class="row between new-player">
+              <div class="row new-player">
                 <input type="text" name="player-addition" class="input playerName-input" placeholder="Player's Name" aria-label="Player's Name" aria-describedby="basic-addon2">
                 <button id="addPlayer" class="button" type="submit">Add</button>
               </div>
@@ -96,7 +101,7 @@
 
       <!-- LIST OF LEAGUE MEMBERS -->
 
-      <div class="row start-game">
+      <div class="row last-row start-game">
         <div class="player-amount-warning">
           <p>At least 2 players must be selected to play</p>
         </div>

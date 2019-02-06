@@ -100,7 +100,7 @@ $(document).ready(function() {
 //================== DYNAMIC PLAYERS NAME ====================
 
   function listPlayer(row, player) {
-    var name = $("<div class='col member'><h4 class='name-of-player'>"+ player.playerName+ "</h4></div>");
+    var name = $("<div class='col member'><h4 class='quaternary-title name-of-player'>"+ player.playerName+ "</h4></div>");
     $(row).append(name);
   }
 
@@ -121,7 +121,7 @@ $(document).ready(function() {
   function pointsCounter(row, player) {
     var addPoint = $("<i class='ion-plus-circled'>");
     var minusPoint = $("<i class='ion-ios-minus-outline'>");
-    var playerPoints = $("<div class='col member-points'><h4 class='playerPoints points'>"+ player.points + "</h4></div>");
+    var playerPoints = $("<div class='col member-points'><h4 class='quaternary-title playerPoints points'>"+ player.points + "</h4></div>");
     $(row).append(playerPoints);
   }
 

@@ -185,7 +185,7 @@ $(document).ready(function() {
   // If a card is clicked on
   $(document).on("click", ".card-img-top", function() {
     console.log("Image Clicked");
-    $(".top-close").css("display", "block");
+    $(".top-close").css("display", "flex");
     var image_url = $(this).attr("src");
     var card_name = $(this).attr("alt");
 
@@ -197,14 +197,15 @@ $(document).ready(function() {
     clearModal();
     $("#title").text(name);
     $(".table-content").append(card_image);
-    $(".modal_footer").css("visibility", "hidden");
+    $(".modal_footer").css("display", "none");
+    $(".modal__header").css("display", "flex");
     $("#mtgModal").css("display", "block");
   };
 
   function clearModal() {
     $("#title").empty();
     $(".table-content").empty();
-    $(".modal_footer").css("visibility", "visible");
+    $(".modal_footer").css("display", "block");
   }
 
   function clearBoard() {
@@ -223,7 +224,8 @@ $(document).ready(function() {
     clearBoard();
     game_amount--
     forModal = true;
-    $(".top-close").css("display", "none");
+    // $(".top-close").css("display", "none");
+    $(".modal__header").css("display", "none");
 
     if (game_amount == 0) {
       gameOver = true;
@@ -378,19 +380,5 @@ $(document).ready(function() {
     clearBoard();
     startGame(players);
   }
-
-
- //================================ BACKGROUND =================================
-
-  // var images = ["mtg-portrait-blue3.jpg", "mtg-portrait-red3.jpg", "mtg-portrait-gold3.jpg", "mtg-portrait-purple3.jpg", "mtg-portrait-green3.jpg"];
-  // var screenSize = Math.floor((Math.random() * images.length));
-  // var background = images[screenSize];
-  // if (screen.height > screen.width) {
-  //   // console.log("portrait");
-  //   $("body").css("background-image", "url(./images/backgrounds/" + background + ")");
-  // } else {
-  //   // console.log("landscape");
-  //   $("body").css("background-image", "url(./images/backgrounds/mtg-landscape-wallpaper2.jpg)");
-  // }
 
 });

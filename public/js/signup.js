@@ -113,7 +113,7 @@ $(document).ready(function() {
     card.addClass("toFront");
   }
 
-  $(".card__container").on('click', '.footer-btn', function() {
+  $(".access-card").on('click', '.footer-btn', function() {
     let card = $(this).offsetParent();
     let signup = $(".signup-card");
     let login = $(".login-card");
@@ -135,7 +135,7 @@ $(document).ready(function() {
 
   });
 
-  $(".card").on('click', '.middle', function() {
+  $(".access-card").on('click', '.middle', function() {
     let card = $(".card-area");
     let contains = card.hasClass("rotate");
     if (!contains) {

@@ -58,11 +58,15 @@ hr {
   font-weight: 500;
 }
 
+.quaternary-title {
+  font-size: 2rem;
+}
+
 /* -------- ROWS --------- */
 
 .row {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   text-align: center;
   align-items: center;
 }
@@ -80,7 +84,7 @@ hr {
 .button {
   border-radius: 5px;
   color: #fff;
-  padding: .5rem;
+  padding: .75rem;
   text-decoration: none;
   font-size: 1.6rem;
   font-weight: bold;
@@ -100,25 +104,37 @@ hr {
 
 header.navbar {
   background-color: #000;
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  background-image:linear-gradient(to bottom right, #ef2d28 30%, #f36a26, #fcb62a, #f36a26, #ef2d28);
+  padding-bottom: 2px;
+}
+header .navbar__container {
+  background-color: #000;
+  padding:.75rem 1rem;
 }
 
 header .navbar__logo {
   display: flex;
-  align-items: flex-end;
+  align-items: end;
+}
+
+header .navbar__image-container img {
+  vertical-align: middle;
 }
 
 header .navbar__logo span {
   margin-left:1rem;
+  font-size: 2rem;
 }
 
 header .league-logout {
   background: var(--color-linear-orange);
   border-color: var(--color-red-orange);
   color: #fff;
+}
+
+.game_page header .navbar__button,
+.access_page header .navbar__button {
+  visibility: hidden;
 }
 
 /* ============================= */
@@ -154,17 +170,22 @@ header .league-logout {
 .input {
   line-height: 1.7;
   font-size: 1.6rem;
-  padding: .35rem;
+  padding: .2rem;
   border-radius: 5px;
   width: 100%;
   margin: 0 1rem;
 }
 
+.last-row {
+  margin: 2.5rem;
+  justify-content: flex-end;
+}
+
 /* ===================================== */
-            /* SIGNIN PAGE */
+            /* ACCESS PAGE */
 /* ===================================== */
 
-.signin_page .container {
+.access_page .container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -179,7 +200,7 @@ header .league-logout {
   align-items: center;
 }
 
-.card__container {
+.access-card {
   width: 28rem;
   height: 35rem;
   position: absolute;
@@ -189,7 +210,7 @@ header .league-logout {
   background-image:linear-gradient(to bottom right, #ef2d28 30%, #f36a26, #fcb62a, #f36a26, #ef2d28);
 }
 
-.card__form {
+.access-card__form {
   background-color: #0f0f0f;
   display: flex;
   flex-direction: column;
@@ -199,7 +220,7 @@ header .league-logout {
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
 
-.card__input {
+.access-card__input {
   border: 2px solid #eee;
   position: relative;
   background: #eee;
@@ -209,7 +230,7 @@ header .league-logout {
   padding: .75rem;
 }
 
-.card__input input {
+.access-card__input input {
   border: none;
   background: transparent;
   width: 100%;
@@ -217,6 +238,12 @@ header .league-logout {
   font-weight: 500;
   font-family: "Expletus Sans", sans-serif;
   font-size: 1.6rem;
+}
+
+.access-card .button {
+  background: radial-gradient(#fcb62a, #f36a26, #ef2d28);
+  border-color: #ef2d28;
+  white-space: nowrap;
 }
 
 .box-btn{
@@ -228,22 +255,22 @@ header .league-logout {
   padding:.525rem;
 }
 
-.card__footer button {
+.access-card__footer button {
   width: 100%;
   padding: 2.5rem;
   font-size: 2.2rem;
   text-transform: uppercase;
   font-weight: 600;
-  background: #4CAF50;
+  background-image: radial-gradient(#5fde65, #4CAF50 40%, #449d48 55%, #37823b);
   border: none;
   color: #fff;
-  box-shadow: none;
+  box-shadow: 0 2px 8px #285c2b;
   outline: none;
   cursor: pointer;
   border-radius: 5px;
 }
 
-.card__footer .alert {
+.access-card__footer .alert {
   color: red;
   font-size: 1.3rem;
   font-weight: bold;
@@ -292,20 +319,9 @@ span.switch {
   margin: 0 auto;
 }
 
-/* =============== FORMS ============== */
-
-form {
+.create_page form {
   padding: 1.5rem;
   text-align: center;
-}
-
-.input {
-  line-height: 1.7;
-  font-size: 1.6rem;
-  padding: .25rem;
-  border-radius: 5px;
-  width: 100%;
-  margin: 0 1rem;
 }
 
 .add-player-row {
@@ -315,6 +331,7 @@ form {
 
 .add-player-btn .button {
   background-image: radial-gradient(#ef2d28, #f36a26, #fcb62a);
+  border-color: var(--color-yellow);
 }
 
 .players-list-title {
@@ -322,15 +339,16 @@ form {
   margin:2.5rem auto;
 }
 
-.finish-league {
+/* .finish-league {
   margin:1.5rem;
-}
+  justify-content: flex-end;
+} */
 
 .finish-league .button {
   background-color: #0071f7;
   color: #fff;
   border-color: #003777;
-  box-shadow: 0 1px 8px #777;
+  /* box-shadow: 0 1px 8px #777; */
 }
 
 .players-list-title .secondary-title {
@@ -375,15 +393,6 @@ form {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-}
-
-.input {
-  line-height: 1.7;
-  font-size: 1.6rem;
-  padding: .2rem;
-  border-radius: 5px;
-  width: 100%;
-  margin: 0 1rem;
 }
 
 .new-player .button {
@@ -489,16 +498,16 @@ span.ion-ios-trash.trash-btn:hover {
 }
 
 
-.start-game {
+/* .start-game {
   justify-content: flex-end;
   margin-top:2.5rem;
-}
+} */
 
 .start-game button {
   background-image: radial-gradient(#fcb62a, #f36a26, #ef2d28);
   border: 1px solid #000;
   color: #fff;
-  margin-left: 2.5rem;
+  margin-right: 2.5rem;
 }
 
 /* =============== MODAL =============== */
@@ -515,7 +524,7 @@ span.ion-ios-trash.trash-btn:hover {
   box-shadow: 0 5px 12px #000;
 }
 
-.modal-header {
+.warning-modal .modal-header {
   background-color: red;
   color: #fff;
   display: flex;
@@ -525,7 +534,7 @@ span.ion-ios-trash.trash-btn:hover {
   font-size: 2rem;
 }
 
-.modal-header button {
+.warning-modal .modal-header button {
   font-size: 2.5rem;
   background-color: transparent;
   color: inherit;
@@ -534,26 +543,63 @@ span.ion-ios-trash.trash-btn:hover {
   border: none;
 }
 
-.modal-content,
-.modal-footer {
+.warning-modal .modal-content,
+.warning-modal .modal-footer {
   padding: 1rem 1.5rem;
 }
 
-.modal-content p {
+.warning-modal .modal-content p {
   margin:2rem 0;
   font-size:1.8rem;
 }
 
-.modal-content p span {
+.warning-modal .modal-content p span {
   font-weight:bold;
 }
 
-.modal-footer {
+.warning-modal .modal-footer {
   border-top: 2px solid #333;
   margin: 0 15px;
   display: flex;
   justify-content: space-between;
 }
+
+.warning-modal .cancel.button {
+  background-color: #000;
+  border-color: #000;
+}
+
+.warning-modal .delete-player.button {
+  background-color:red;
+  border-color: red;
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(-151rem) rotateX(89deg);
+  }
+
+  70% {
+    transform: translateX(20rem) rotateX(-30deg);
+  }
+
+  80% {
+    transform: translateX(-10rem) rotateX(15deg);
+  }
+
+  90% {
+    transform: translateX(5rem) rotateX(-8deg);
+  }
+
+  100% {
+    transform: translateX(0) rotateX(0deg);
+  }
+}
+
+
+/* ================================== */
+            /* GAME PAGE */
+/* ================================== */
 
 #supplementalCardsDiv {
   animation: slideInRight ease-in 2s;
@@ -604,12 +650,9 @@ span.ion-ios-trash.trash-btn:hover {
   color: #fff;
 }
 
+/* ================= MODAL ================= */
 
-/* ================================== */
-              /* MODAL */
-/* ================================== */
-
-.modal {
+.game_modal.modal {
   display: none;
   position: fixed;
   z-index: 1;
@@ -621,65 +664,73 @@ span.ion-ios-trash.trash-btn:hover {
   background-color: rgba(0,0,0,.5);
 }
 
-.modal-content {
+.game_modal .modal-content {
   background-color: #f4f4f4;
   position: fixed;
   top:50%;
   left: 50%;
   transform:translate(-50%,-50%);
-  padding: 2rem;
   padding-top: 0;
   width: 70%;
   box-shadow: 0 .5rem .8rem 0 rgba(0,0,0,.2), 0 .7rem 2rem 0 rgba(0,0,0,.17);
+  background-color: #000;
 }
 
-.modal-content header {
+.game_modal .modal__header {
   font-size: 2rem;
   justify-content: flex-end;
-  padding:.5rem;
-  color: #000;
+  padding:.5rem 1rem;
+  background-image: linear-gradient(to right, #ef2d28, #f36a26, #fcb62a);
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
-.modal-title {
+.game_modal .modal-title {
   flex: 1;
   text-align: center;
 }
 
-.modal-content header .button {
+/* .game_modal .modal__header .button {
   background: transparent;
   border: none;
   font-size: 3rem;
-}
+} */
 
-.modal-body {
+.game_modal .modal-body {
   padding:2rem;
+  background-color: #fff;
 }
 
-.modal-card-image {
+.game_modal .modal-card-image {
   max-width:36rem;
   margin: 0 auto;
 }
 
-.modal-card-image img {
+.game_modal .modal-card-image img {
+  vertical-align: middle;
   width:100%;
 }
 
-.table-content {
-  width: 70%;
+.game_modal .table-content {
+  width: 100%;
 }
 
-.top-close {
+.game_modal .top-close {
   border: none;
-  font-size: 2rem;
+  font-size: 2.5rem;
   display: flex;
   background: transparent;
-  height: 3rem;
+  height: 4rem;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: flex-start;
   outline: none;
+  color: transparent;
+  padding: 0 1rem;
+  font-weight: bold;
 }
 
-.button.close {
+.game_modal .button.close {
   background: radial-gradient(circle, #5f7747, #374d27);
   border: 2px solid #374d27;
   color: #fff;
@@ -687,22 +738,28 @@ span.ion-ios-trash.trash-btn:hover {
   outline: none;
 }
 
-/* =========== END GAME MODAL =========== */
-.modal__table {
+/* =========== END-GAME MODAL =========== */
+.game_modal .modal__table {
   margin-bottom: 2.5rem;
 }
 
-.modal__table .modal__title {
+.game_modal .modal__table .modal__title {
   background-color: #000;
   color: #fff;
   margin-bottom: 1.5rem;
+  padding-top: .65rem;
 }
 
-.modal__table-players {
+.game_modal .modal__table-players {
   margin: 0 .5rem;
+  color: #000;
 }
 
-.modal__commander-select {
+.game_modal .modal__player-data {
+  text-align: left;
+}
+
+.game_modal .modal__commander-select {
   display: inline-block;
   width: 100%;
   height: 3rem;
@@ -720,17 +777,16 @@ span.ion-ios-trash.trash-btn:hover {
   appearance: none;
 }
 
-.row.pointsRow {
+.game_modal .row.pointsRow {
   justify-content: flex-end;
 }
 
-.pointsRow h4 {
-  /* margin: 0 1.5rem; */
+.game_modal .pointsRow h4 {
   width: 3rem;
   text-align: center;
 }
 
-.btn-circle {
+.game_modal .btn-circle {
   width: 25px;
   height: 25px;
   border-radius: 15px;
@@ -740,17 +796,21 @@ span.ion-ios-trash.trash-btn:hover {
   border:none;
 }
 
-.btn-circle.minus-point span {
+.game_modal .btn-circle.minus-point span {
   color: #bf212e;
 }
 
-.btn-circle.add-point span {
+.game_modal .btn-circle.add-point span {
   color: #1b980b;
 }
 
-button#modal-close:active {
+.game_modal button#modal-close:active {
   transform: scale(.95) translateY(2px);
   box-shadow: 0 1px 8px 2px #000;
+}
+
+.game-footer {
+  background-color: #fff;
 }
 
 
@@ -759,22 +819,194 @@ button#modal-close:active {
 
 
 @media screen and (orientation: portrait) {
-  body {
+
+  .access_page {
+    background-image: url("../images/backgrounds/mtg-portrait-blue3.jpg");
+  }
+
+  .create_page {
+    background-image: url("../images/backgrounds/mtg-portrait-green3.jpg");
+  }
+
+  .setup_page {
+    background-image: url("../images/backgrounds/mtg-portrait-purple3.jpg");
+  }
+
+  .game_page {
     background-image: url("../images/backgrounds/mtg-portrait-red3.jpg");
   }
 }
 
 @media screen and (max-width: 575.98px) {
-  .modal-body {
-    padding: 2rem 0;
+
+  .button {
+    padding: .5rem;
+    font-size: 1.5rem;
   }
-  .modal-content {
+
+  .input {
+    font-size: 1.5rem;
+    padding: 0 .25rem;
+  }
+
+  .custom-select {
+    height: 2.5rem;
+  }
+
+  .last-row {
+    margin: 2.5rem 0;
+  }
+
+
+  /* ====================================== */
+                /* ACCESS PAGE */
+  /* ====================================== */
+
+  .access_page .container {
+    perspective: 1200px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-area {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: translateZ(-5rem);
+    transition: transform 1s;
+  }
+
+  .access-card {
+    width: 25rem;
+    top:25%;
+  }
+
+  .signup-card {
+    transform: rotateY(70deg) translateZ(18rem) translateY(-25%);
+  }
+  .login-card {
+    transform: rotateY(0deg) translateZ(18rem) translateY(-25%);
+  }
+
+  .rotate {
+    transform: translateZ(-5rem) rotateY(-70deg);
+  }
+
+  .middle {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .switch-notify {
+    font-size: 1.3rem;
+    margin-bottom: 4px;
+  }
+
+  .switch {
+    font-size: 2.6rem;
+  }
+
+  .switch-arrow {
+    height: 2rem;
+    width: 2rem;
+  }
+
+  .switch-arrow img {
     width:100%;
+    vertical-align: top
   }
-  .table-content {
+
+  .flip {
+    transform: rotate(180deg);
+    margin-bottom: 1.2rem;
+  }
+
+  .access-card__footer button {
+    font-size: 2rem;
+  }
+
+  /* ====================================== */
+                /* CREATE PAGE */
+  /* ====================================== */
+
+  .create-league {
+    max-width: 100%;
+  }
+
+  .league-player {
     width: 100%;
   }
-  .modal_col {
+  .player-input {
+    padding-right: 1px;
+  }
+
+  .league-form {
+    margin-bottom: 4rem;
+  }
+
+  #nameLeague {
+    width: 100%;
+  }
+
+  /* ====================================== */
+                /* SETUP PAGE */
+  /* ====================================== */
+
+  .gamesAndPlayers {
+    display: block;
+  }
+
+  .setup_page .input {
+    width:60%;
+  }
+
+  #startGame {
+    width:100%;
+  }
+
+  .primary-title {
+    font-size:4rem;
+  }
+
+  .secondary-title {
+    font-size: 3rem;
+  }
+
+  .tertiary-title {
+    font-size:1.7rem;
+  }
+
+  .quaternary-title {
+    font-size:1.5rem;
+  }
+
+  .row.start-game {
+    display: block
+  }
+
+  .player-amount-warning {
+    font-size: 1.3rem;
+    margin: 1.5rem 0;
+  }
+
+  /* ====================================== */
+                /* GAME PAGE */
+  /* ====================================== */
+
+  .game-button-container,
+  .end-game {
+    width: 100%;
+  }
+  .game_modal .modal-body {
+    padding: 2rem;
+  }
+  .game_modal .modal-content {
+    width:95%;
+  }
+  .game_modal .table-content {
+    width: 100%;
+  }
+  .game_modal .modal_col {
     width:33.33333%;
   }
 
@@ -784,9 +1016,17 @@ button#modal-close:active {
 
   .userName {
     background-color: rgba(255,255,255,.85);
-    /* color:#000; */
     font-size: 1.3rem;
     text-align: center;
+    width: 100%;
+    color: #000;
+  }
+
+  .game-footer {
+    padding: .5rem;
+  }
+
+  .game-footer button {
     width: 100%;
   }
 
@@ -794,10 +1034,91 @@ button#modal-close:active {
 
 @media screen and (min-width: 576px) {
 
+  /* ====================================== */
+                /* ACCESS PAGE */
+  /* ====================================== */
+
+  /* ====================================== */
+                /* CREATE PAGE */
+  /* ====================================== */
+
+  /* ====================================== */
+                /* SETUP PAGE */
+  /* ====================================== */
+
+  /* ====================================== */
+                /* GAME PAGE */
+  /* ====================================== */
+
+}
+
+@media screen and (min-width: 576px) and (max-width: 991.98px) {
+
+  /* ====================================== */
+                /* ACCESS PAGE */
+  /* ====================================== */
+
+  .card-area {
+    position: relative;
+    perspective: 1200px;
+    height:100%;
+  }
+
+  .access__card {
+    transform-style: preserve-3d;
+    width:26rem;
+    height:30rem;
+  }
+
+  .signup-card {
+    z-index: 0;
+    transform: translate3d(8.5rem, 0rem, 50px) scale(.9) rotateZ(-90deg);
+  }
+
+  .login-card {
+    z-index: 1;
+    transform: translate3d(0rem, 0rem, 100px) scale(1);
+  }
+
+  .input-group {
+    margin-bottom: 2rem;
+  }
+
+  .toFront {
+    z-index: 1;
+    animation: toFront ease-out 2s;
+    transform: translate3d(0rem, 0rem, 100px) scale(1);
+  }
+
+  .toBack {
+    z-index: 0;
+    animation: toBack ease-out 2s;
+    transform: translate3d(8.5rem, 0rem, 50px) scale(.9) rotateZ(-90deg);
+  }
+
+  .middle {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 768px) {
-  .modal-dialog {
+
+  /* ====================================== */
+                /* ACCESS PAGE */
+  /* ====================================== */
+
+  /* ====================================== */
+                /* CREATE PAGE */
+  /* ====================================== */
+
+  /* ====================================== */
+                /* SETUP PAGE */
+  /* ====================================== */
+
+  /* ====================================== */
+                /* GAME PAGE */
+  /* ====================================== */
+  .game_modal .modal-dialog {
     max-width: 720px;
   }
 }
@@ -805,18 +1126,142 @@ button#modal-close:active {
 
 @media screen and (min-width: 992px) {
 
+  /* ====================================== */
+                /* ACCESS PAGE */
+  /* ====================================== */
+
+  /* ====================================== */
+                /* CREATE PAGE */
+  /* ====================================== */
+
+  .player {
+    font-size: 1.45em;
+  }
+
+  .player-input {
+    padding-right: 0;
+  }
+
+  .add-player-btn {
+    text-align: right;
+  }
+
+  /* ====================================== */
+                /* SETUP PAGE */
+  /* ====================================== */
+
+  /* ====================================== */
+                /* GAME PAGE */
+  /* ====================================== */
+
 }
 
 @media screen and (min-width: 1440px) {
-  .container {
+
+  .last-row {
+    margin-top: 5rem;
+  }
+
+  /* ====================================== */
+                /* ACCESS PAGE */
+  /* ====================================== */
+
+  .card-area {
+    position: relative;
+    perspective: 1200px;
+  }
+
+  .access-card {
+    transform-style: preserve-3d;
+  }
+
+  .signup-card {
+    z-index: 0;
+    transform: translate3d(8.5rem, 0rem, 50px) scale(.9) rotateZ(-90deg);
+  }
+
+  .login-card {
+    z-index: 1;
+    transform: translate3d(0rem, 0rem, 100px) scale(1);
+  }
+
+  .toFront {
+    z-index: 1;
+    animation: toFront ease-out 2s;
+    transform: translate3d(0rem, 0rem, 100px) scale(1);
+  }
+
+  .toBack {
+    z-index: 0;
+    animation: toBack ease-out 2s;
+    transform: translate3d(8.5rem, 0rem, 50px) scale(.9) rotateZ(-90deg);
+  }
+
+  .middle {
+    display: none;
+  }
+
+  /* ====================================== */
+                /* CREATE PAGE */
+  /* ====================================== */
+
+  /* ====================================== */
+              /* SETUP PAGE */
+  /* ====================================== */
+
+  .setup_page .container {
     max-width: 1140px;
   }
 
-  .modal-content {
+  .setup_divider {
+    margin: 1.5rem auto;
+    width:83.33333%;
+  }
+  .league_data {
+    margin: 0 auto;
+    width:83.33333%;
+  }
+
+  .members_list,
+  .playerList {
+    margin: 0 2rem;
+  }
+
+  .members_list {
+    font-size:2.25rem;
+  }
+
+  .playerList {
+    font-size:2rem;
+  }
+
+  .player-list-item:hover {
+    background-color: rgba(255,255,255, .8);
+    color: black;
+    border-radius: 6px;
+  }
+
+  .player-list-item:hover .trash-btn {
+    color:#000;
+  }
+
+  .warning-modal {
+    max-width: 500px;
+  }
+
+  /* ====================================== */
+              /* GAME PAGE */
+  /* ====================================== */
+
+  .game_page .container {
+    max-width: 1140px;
+  }
+
+  .game_modal .modal-content {
     width:50%;
   }
 
-  .modal_col {
+  .game_modal .modal_col {
     width:33.33333%;
   }
 
@@ -842,5 +1287,20 @@ button#modal-close:active {
 
   .commanderCard:hover .card-img-top {
     opacity: .3;
+  }
+
+  .game_modal .modal__table .modal__title {
+    height:6.5rem;
+    align-items: center;
+  }
+
+  .game_modal .modal__table-players {
+    margin: 0 2rem;
+    color: #000;
+  }
+
+  .game-footer {
+    padding:2rem;
+    justify-content: flex-end;
   }
 }

@@ -7,20 +7,27 @@
     <link rel="icon" href="./images/logos/mtg-logo-M-noBg.png">
     <link rel="stylesheet" href="css/reset.css">
     <link href="https://fonts.googleapis.com/css?family=Expletus+Sans:400,500,700|Montserrat:400,400i,500,500i" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
     <title>League Manager</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
 
-  <body class="signin_page">
+  <body class="access_page">
 
     <!-- ============= NAVBAR ============== -->
 
     <header class="navbar">
-      <div class="navbar__logo">
-        <img src="images/logos/mtg-logo-m-elements.png" width="30" class="d-inline-block" alt="Magic The Gathering Icon"> <span class="brand-logo"> League Manager</span>
+      <div class="navbar__container row between">
+        <div class="navbar__logo">
+          <div class="navbar__image-container">
+            <img src="images/logos/mtg-logo-m-elements.png" width="30" class="d-inline-block" alt="Magic The Gathering Icon">
+          </div>
+          <span class="brand-logo"> League Manager</span>
+        </div>
+        <div class="button navbar__button" style="visibility:hidden;">
+          <a role="button" class="league-logout button" href="/logout">Logout</a>
+        </div>
       </div>
-
     </header>
 
     <div class="container">
@@ -28,13 +35,13 @@
       <div class="card-area">
 
         <!-- ============= LOGIN CARD ============== -->
-        <div class="card-border card__container login-card init">
-          <div class="card__form login-form">
-            <form class="login card__body">
-              <div class="card__input email">
+        <div class="card-border access-card login-card init">
+          <div class="access-card__form login-form">
+            <form class="login access-card__body">
+              <div class="access-card__input email">
                 <input type="email" name="email" class="form-control" id="login-email-input" placeholder="Email">
               </div>
-              <div class="card__input password">
+              <div class="access-card__input password">
                 <input type="password" name="password" class="form-control" id="login-password-input" placeholder="Password">
                 <button type="submit" class="box-btn button">Login</button>
               </div>
@@ -47,7 +54,7 @@
               </div>
             </div>
 
-            <div class="card__footer">
+            <div class="access-card__footer">
               <div style="display: none" id="login-alert" class="alert alert-danger" role="alert">
                 <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                 <span class="sr-only">Error:</span> <span class="login-msg">Please check email and password</span>
@@ -60,13 +67,13 @@
 
         <!-- ============= SIGN UP CARD ============== -->
 
-        <div class="card-border card__container signup-card">
-          <div class="card__form signup-form">
-            <form class="signup card__body">
-              <div class="card__input email">
+        <div class="card-border access-card signup-card">
+          <div class="access-card__form signup-form">
+            <form class="signup access-card__body">
+              <div class="access-card__input email">
                 <input type="email" name="email" class="form-control" id="signup-email-input" placeholder="Email">
               </div>
-              <div class="card__input password">
+              <div class="access-card__input password">
                 <input type="password" name="password" class="form-control" id="signup-password-input" placeholder="Password">
                 <button type="submit" class="button box-btn">Sign Up</button>
               </div>
@@ -79,7 +86,7 @@
               <p class="switch-notify">Click Here to Log In </p>
             </div>
 
-            <div class="card__footer">
+            <div class="access-card__footer">
               <div style="display: none" id="signup-alert" class="alert alert-danger" role="alert">
                 <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                 <span class="sr-only">Error:</span> <span class="signup-msg"></span>

@@ -1,15 +1,3 @@
-// var images = ["mtg-portrait-blue3.jpg", "mtg-portrait-red3.jpg", "mtg-portrait-gold3.jpg", "mtg-portrait-purple3.jpg", "mtg-portrait-green3.jpg"];
-// var screenSize = Math.floor((Math.random() * images.length));
-// // took out + 1
-// console.log("background choice:", screenSize);
-// var background = images[screenSize];
-// if (screen.height > screen.width) {
-//   console.log("portrait");
-//   $("body").css("background-image", "url(./images/backgrounds/" + background + ")");
-// } else {
-//   console.log("landscape");
-//   $("body").css("background-image", "url(./images/backgrounds/mtg-landscape-wallpaper2.jpg)");
-// }
 
 $(document).ready(function() {
   var mockNameArray = ["League With No Name", "A League of Their Own", "Major League", "The League of Extraordinary Gentlemen", "Justice League", "Little Big League", "Out of Your League"];
@@ -29,7 +17,9 @@ $(document).ready(function() {
   });
 
   $("#nameLeague").click(function(event) {
-    updateLeague(event);
+    event.preventDefault();
+    var name = $("#league_name");
+    updateLeague(name);
   });
 
 // =================== INITIALIZE USER DATA ====================
@@ -105,10 +95,11 @@ $(document).ready(function() {
 
 // ===================== UPDATE LEAGUE NAME =====================
 
-  function updateLeague(e) {
+  // function updateLeague(e) {
+  function updateLeague(name) {
 
-    var name = $(".leagueName-input");
-    e.preventDefault();
+    // var name = $(".leagueName-input");
+    // e.preventDefault();
 
     if (!name.val().trim()) {
       window.location.replace("/setup")
