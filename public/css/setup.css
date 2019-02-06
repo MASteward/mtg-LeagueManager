@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  background-image: url("../images/background/mtg-landscape-wallpaper2.jpg");
+  background-image: url("../images/backgrounds/mtg-landscape-wallpaper2.jpg");
   box-sizing: border-box;
   font-family: 'Expletus Sans';
   background-size: cover;
@@ -52,14 +52,23 @@ h4 {
 
 .row {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   text-align: center;
   align-items: center;
 }
 
+.around {
+  justify-content: space-around;
+}
+
+.between {
+  justify-content: space-between;
+}
+
 .button {
   border-radius: 5px;
-  padding: .5rem;
+  color: #fff;
+  padding: .75rem;
   text-decoration: none;
   font-size: 1.6rem;
   font-weight: bold;
@@ -84,17 +93,17 @@ header.navbar {
 
 header .navbar__logo {
   display: flex;
-  align-items: flex-end;
+  align-items: end;
 }
 
 header .navbar__logo span {
   margin-left:1rem;
+  font-size: 2rem;
 }
 
 header .league-logout {
   background: linear-gradient(#ef2d28, #f36a26, #fcb62a, #f36a26, #ef2d28);
   border-color: #ef2d28;
-  color: #fff;
 }
 
 /* ============== CONTAINER ============= */
@@ -106,9 +115,8 @@ header .league-logout {
   margin: 0 auto;
 }
 
-.container .primary-title.league-title {
+.league-title {
   text-align: center;
-  text-decoration: underline;
   background-image: linear-gradient(to right, #ef2d28, #f36a26, #fcb62a);
   -webkit-background-clip: text;
   color: transparent;
@@ -119,15 +127,13 @@ header .league-logout {
 }
 
 #gameSelect {
-  margin: 0 auto;
   width: 7rem;
-  background-color: #fff;
 }
 
 .custom-select {
   display: inline-block;
   width: 100%;
-  height: calc(2.25rem + 2px);
+  height: 3rem;
   padding: .2rem 1.75rem .2rem .75rem;
   line-height: 1.5;
   color: #495057;
@@ -142,23 +148,18 @@ header .league-logout {
   appearance: none;
 }
 
-
-.new-player {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.new-player input {
+.input {
+  line-height: 1.7;
   font-size: 1.6rem;
-  padding: 2px;
+  padding: .2rem;
+  border-radius: 5px;
+  width: 100%;
+  margin: 0 1rem;
 }
 
 .new-player .button {
-  color: #fff;
   background: radial-gradient(#7cb1da, #0f498e);
   border-color: #0f498e;
-  margin-left: 5px;
 }
 
 section.league_options {
@@ -169,12 +170,6 @@ section.league_options {
 
 .league_data {
   margin: 0 auto;
-}
-
-.league-members-title {
-  background-image: linear-gradient(to right, #ef2d28, #f36a26, #fcb62a);
-  -webkit-background-clip: text;
-  color: transparent;
 }
 
 .end_header {
@@ -196,9 +191,6 @@ div.div-checkbox {
 .deletePlayer {
   position: relative;
 }
-
-
-
 
 /* ----------- TRASH ICON ----------- */
 button.delete.btn-circle,

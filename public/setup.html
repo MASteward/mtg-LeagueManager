@@ -14,7 +14,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
 
-  <body>
+  <body class="setup_page">
 
     <!-- ============= NAVBAR ============== -->
 
@@ -36,7 +36,7 @@
 
       <!-- NUMBER OF GAMES AND PLAYER ADDITIONS -->
       <section class="league_options">
-        <div class="row gamesAndPlayers">
+        <div class="row around gamesAndPlayers">
           <div class="game_number">
             <div class="select-games">
               <label for="gameSelect" class="number-games-label"><h4 class="number-games-title">Number of Games</h4></label>
@@ -54,8 +54,8 @@
             <form class="add-player-form" action="index.html" method="post">
               <label for="player-addition" class="add-player"><h4 class="add-player-title">Add a Player</h4></label>
 
-              <div class="new-player">
-                <input type="text" name="player-addition" class="form-control playerName-input" placeholder="Player's Name" aria-label="Player's Name" aria-describedby="basic-addon2">
+              <div class="row between new-player">
+                <input type="text" name="player-addition" class="input playerName-input" placeholder="Player's Name" aria-label="Player's Name" aria-describedby="basic-addon2">
                 <button id="addPlayer" class="button" type="submit">Add</button>
               </div>
             </form>
@@ -67,7 +67,7 @@
 
       <section class="league_data">
         <div class="row">
-          <h2 class="secondary-title league-members-title">League Members</h2>
+          <h2 class="secondary-title league-title">League Members</h2>
         </div>
         <div class="row members_list">
 

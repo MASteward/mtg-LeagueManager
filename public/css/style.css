@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  background-image: url("../images/background/mtg-landscape-wallpaper2.jpg");
+  background-image: url("../images/backgrounds/mtg-landscape-wallpaper2.jpg");
   font-family: 'Expletus Sans';
   background-size: cover;
   background-attachment: fixed;
@@ -57,14 +57,26 @@ h4 {
   align-items: center;
 }
 
+.around {
+  justify-content: space-around;
+}
+
+.between {
+  justify-content: space-between;
+}
+
 .button {
   border-radius: 5px;
-  padding: .5rem;
+  color: #fff;
+  padding: .75rem;
   text-decoration: none;
   font-size: 1.6rem;
   font-weight: bold;
   outline:none;
   box-shadow: 0 2px 8px #000;
+  background: radial-gradient(#fcb62a, #f36a26, #ef2d28);
+  border-color: #ef2d28;
+  white-space: nowrap;
 }
 
 .button:active {
@@ -90,13 +102,14 @@ header .navbar__logo {
 
 header .navbar__logo span {
   margin-left:1rem;
+  font-size: 2rem;
 }
 
 /* ================================ */
           /* CONTENT AREA */
 /* ================================ */
 
-.container {
+.signin_page .container {
   position: relative;
   display: flex;
   justify-content: center;
@@ -112,7 +125,7 @@ header .navbar__logo span {
   align-items: center;
 }
 
-.card {
+.card__container {
   width: 28rem;
   height: 35rem;
   position: absolute;
@@ -122,8 +135,7 @@ header .navbar__logo span {
   background-image:linear-gradient(to bottom right, #ef2d28 30%, #f36a26, #fcb62a, #f36a26, #ef2d28);
 }
 
-.login-form,
-.signup-form {
+.card__form {
   background-color: #0f0f0f;
   display: flex;
   flex-direction: column;
@@ -133,7 +145,7 @@ header .navbar__logo span {
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
 
-.input-group {
+.card__input {
   border: 2px solid #eee;
   position: relative;
   background: #eee;
@@ -143,37 +155,18 @@ header .navbar__logo span {
   padding: .75rem;
 }
 
-.input-group input {
+.card__input input {
   border: none;
   background: transparent;
   width: 100%;
   outline: none;
   font-weight: 500;
   font-family: "Expletus Sans", sans-serif;
-  font-size: 16px;
-}
-
-.input-group label {
-  position: absolute;
-  top: 1rem;
-  left: 0;
-  padding-left: 1rem;
-  font-weight: 500;
-  color: #aaa;
+  font-size: 1.6rem;
 }
 
 .box-btn{
-  display: inline-block;
-  font-weight: 400;
-  text-align: center;
-  white-space: nowrap;
-  padding: .375rem .75rem;
-  font-size: 1.3rem;
-  line-height: 1.7;
-  background: radial-gradient(#fcb62a, #f36a26, #ef2d28);
-  border-color: #ef2d28;
-  color: #fff;
-  border-radius: 5px;
+  font-size: 1.4rem;
 }
 
 .password {
@@ -181,7 +174,7 @@ header .navbar__logo span {
   padding:.525rem;
 }
 
-.card-footer button {
+.card__footer button {
   width: 100%;
   padding: 2.5rem;
   font-size: 2.2rem;
@@ -196,9 +189,7 @@ header .navbar__logo span {
   border-radius: 5px;
 }
 
-
-
-.card-footer .alert {
+.card__footer .alert {
   color: red;
   font-size: 1.3rem;
   font-weight: bold;
@@ -241,7 +232,9 @@ span.switch {
 
 
 
-/* ========== MEDIA QUERIES ============= */
+/* ================================= */
+          /* MEDIA QUERIES  */
+/* ================================= */
 
 @media screen and (orientation: portrait) {
   body {
@@ -269,17 +262,14 @@ span.switch {
   }
 
   .signup-card {
-    /* transform: rotateY(70deg) translateZ(18rem); */
     transform: rotateY(70deg) translateZ(18rem) translateY(-25%);
   }
   .login-card {
-    /* transform: rotateY(0deg) translateZ(18rem); */
     transform: rotateY(0deg) translateZ(18rem) translateY(-25%);
   }
 
   .rotate {
     transform: translateZ(-5rem) rotateY(-70deg);
-    /* transform: translateZ(-5rem) rotateY(-70deg) translateY(-25%); */
   }
 
   .middle {
@@ -318,9 +308,7 @@ span.switch {
 }
 
 @media screen and (min-width: 576px) and (max-width: 991.98px) {
-  .container {
-    /* margin-top:2rem; */
-  }
+
   .card-area {
     position: relative;
     perspective: 1200px;

@@ -52,12 +52,28 @@ hr {
   align-items: center;
 }
 
+.around {
+  justify-content: space-around;
+}
+
+.between {
+  justify-content: space-between;
+}
+
 .button {
   border-radius: 5px;
+  color: #fff;
   padding: .75rem;
   text-decoration: none;
   font-size: 1.6rem;
   font-weight: bold;
+  outline:none;
+  box-shadow: 0 2px 8px #000;
+}
+
+.button:active {
+  transform: scale(.95) translateY(2px);
+  box-shadow: 0 1px 8px 2px #000;
 }
 
 /* =========== HEADER =========== */
@@ -73,11 +89,12 @@ header.navbar {
 
 header .navbar__logo {
   display: flex;
-  align-items: flex-end;
+  align-items: end;
 }
 
 header .navbar__logo span {
   margin-left:1rem;
+  font-size: 2rem;
 }
 
 header .league-logout {
@@ -249,7 +266,7 @@ header .league-logout {
 .modal__commander-select {
   display: inline-block;
   width: 100%;
-  height: calc(2.25rem + 2px);
+  height: 3rem;
   padding: .2rem 1.75rem .2rem .75rem;
   line-height: 1.5;
   color: #495057;

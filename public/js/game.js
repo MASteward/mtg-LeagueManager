@@ -122,9 +122,9 @@ $(document).ready(function() {
 
   function createCard(forPlayer) {
     if (forPlayer) {
-      return $("<div class='col user commanderCard card w3-hover-shadow' data-toggle='modal' data-target='#mtgModal'>");
+      return $("<div class='card__col user commanderCard card w3-hover-shadow' data-toggle='modal' data-target='#mtgModal'>");
     } else {
-      return $("<div class='col user suppCard card w3-hover-shadow' data-toggle='modal' data-target='#mtgModal'>");
+      return $("<div class='card__col user suppCard card w3-hover-shadow' data-toggle='modal' data-target='#mtgModal'>");
     }
   }
 

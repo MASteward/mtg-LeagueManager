@@ -1,3 +1,11 @@
+:root {
+  --color-yellow: #fcb62a;
+  --color-red-orange: #ef2d28;
+  --color-orange:#f36a26;
+  --color-linear-orange: linear-gradient(#ef2d28, #f36a26, #fcb62a, #f36a26, #ef2d28);
+  --color-radial-orange: radial-gradient(#ef2d28, #f36a26, #fcb62a);
+}
+
 *,
 *::after,
 *::before {
@@ -11,7 +19,7 @@ html {
 }
 
 body {
-  background-image: url("../images/background/mtg-landscape-wallpaper2.jpg");
+  background-image: url("../images/backgrounds/mtg-landscape-wallpaper2.jpg");
   font-family: 'Expletus Sans';
   box-sizing: border-box;
   background-size: cover;
@@ -34,15 +42,25 @@ hr {
 /* ========== TITLE ========== */
 
 .primary-title {
-  font-size: 4rem;
+  font-size: 6rem;
+  font-weight: 700;
 }
 
 .secondary-title {
-  font-size: 3rem;
+  font-size: 4.5rem;
+  font-weight: 600;
 }
 
 .tertiary-title {
-  font-size: 2.5rem;
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+.league-title {
+  text-align: center;
+  background-image: linear-gradient(to right, #ef2d28, #f36a26, #fcb62a);
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 .row {
@@ -52,15 +70,33 @@ hr {
   align-items: center;
 }
 
+.around {
+  justify-content: space-around;
+}
+
+.between {
+  justify-content: space-between;
+}
+
 .button {
   border-radius: 5px;
-  padding: .5rem;
+  color: #fff;
+  padding: .75rem;
   text-decoration: none;
   font-size: 1.6rem;
   font-weight: bold;
+  outline:none;
+  box-shadow: 0 2px 8px #000;
 }
 
-/* =========== HEADER =========== */
+.button:active {
+  transform: scale(.95) translateY(2px);
+  box-shadow: 0 1px 8px 2px #000;
+}
+
+/* ================================ */
+            /* HEADER */
+/* ================================ */
 
 header.navbar {
   background-color: #000;
@@ -72,20 +108,24 @@ header.navbar {
 
 header .navbar__logo {
   display: flex;
-  align-items: flex-end;
+  align-items: end;
 }
 
 header .navbar__logo span {
   margin-left:1rem;
+  font-size: 2rem;
 }
 
 header .league-logout {
-  background: linear-gradient(#ef2d28, #f36a26, #fcb62a, #f36a26, #ef2d28);
-  border-color: #ef2d28;
+  background: var(--color-linear-orange);
+  border-color: var(--color-red-orange);
   color: #fff;
 }
 
-/* =========== CONTAINER =========== */
+/* ============================= */
+            /* MAIN */
+/* ============================= */
+
 .container {
   position: relative;
   padding: 1.5rem;
@@ -103,36 +143,33 @@ header .league-logout {
 }
 
 .create-league {
-  max-width:500px;
+  max-width:50rem;
   margin: 0 auto;
 }
 
 /* =============== FORMS ============== */
+
 form {
   padding: 1.5rem;
   text-align: center;
 }
 
-.leagueName-input,
-.playerName-input {
+.input {
   line-height: 1.7;
   font-size: 1.6rem;
-  padding: .5rem;
+  padding: .25rem;
   border-radius: 5px;
   width: 100%;
+  margin: 0 1rem;
 }
 
 .add-player-row {
   justify-content: center;
+  max-width: 46rem;
 }
 
 .add-player-btn .button {
-  margin-left: 1.5rem;
-  line-height: 1.7;
-  color: #fff;
   background-image: radial-gradient(#ef2d28, #f36a26, #fcb62a);
-  border: 2px solid #fcb62a;
-  padding: .5rem 1rem;
 }
 
 .players-list-title {

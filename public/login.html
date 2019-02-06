@@ -12,7 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
 
-  <body>
+  <body class="signin_page">
 
     <!-- ============= NAVBAR ============== -->
 
@@ -28,15 +28,15 @@
       <div class="card-area">
 
         <!-- ============= LOGIN CARD ============== -->
-        <div class="card-border card login-card init">
-          <div class="form-collection login-form">
-            <form class="login card-body">
-              <div class="input-group email">
+        <div class="card-border card__container login-card init">
+          <div class="card__form login-form">
+            <form class="login card__body">
+              <div class="card__input email">
                 <input type="email" name="email" class="form-control" id="login-email-input" placeholder="Email">
               </div>
-              <div class="input-group password">
+              <div class="card__input password">
                 <input type="password" name="password" class="form-control" id="login-password-input" placeholder="Password">
-                <button type="submit" class="box-btn">Login</button>
+                <button type="submit" class="box-btn button">Login</button>
               </div>
             </form>
 
@@ -47,7 +47,7 @@
               </div>
             </div>
 
-            <div class="card-footer">
+            <div class="card__footer">
               <div style="display: none" id="login-alert" class="alert alert-danger" role="alert">
                 <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                 <span class="sr-only">Error:</span> <span class="login-msg">Please check email and password</span>
@@ -60,15 +60,15 @@
 
         <!-- ============= SIGN UP CARD ============== -->
 
-        <div class="card-border card signup-card">
-          <div class="form-collection signup-form">
-            <form class="signup card-body">
-              <div class="input-group email">
+        <div class="card-border card__container signup-card">
+          <div class="card__form signup-form">
+            <form class="signup card__body">
+              <div class="card__input email">
                 <input type="email" name="email" class="form-control" id="signup-email-input" placeholder="Email">
               </div>
-              <div class="input-group password">
+              <div class="card__input password">
                 <input type="password" name="password" class="form-control" id="signup-password-input" placeholder="Password">
-                <button type="submit" class="box-btn">Sign Up</button>
+                <button type="submit" class="button box-btn">Sign Up</button>
               </div>
             </form>
 
@@ -79,7 +79,7 @@
               <p class="switch-notify">Click Here to Log In </p>
             </div>
 
-            <div class="card-footer">
+            <div class="card__footer">
               <div style="display: none" id="signup-alert" class="alert alert-danger" role="alert">
                 <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                 <span class="sr-only">Error:</span> <span class="signup-msg"></span>

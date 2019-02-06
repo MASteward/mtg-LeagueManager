@@ -12,7 +12,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
-<body>
+<body class="create_page">
   <header class="navbar">
     <div class="navbar__logo">
       <img src="images/logos/mtg-logo-m-elements.png" width="30" class="d-inline-block" alt="Magic The Gathering Icon"> <span class="brand-logo">League Manager</span>
@@ -31,7 +31,7 @@
       <form class="league-name-form">
         <label for="league-name" class="row leagueName-label"><h3 class="tertiary-title">League Name</h3></label>
         <div class="row">
-          <input name="league-name" class="leagueName-input" type="text" placeholder="Enter League Name">
+          <input name="league-name" class="input leagueName-input" type="text" placeholder="Enter League Name">
         </div>
 
       </form>
@@ -39,7 +39,7 @@
       <form class="league-player-form">
         <label for="player-name" class="playerName-label"><h3 class="tertiary-title">Player Name</h3></label>
         <div class="row add-player-row">
-          <input name="player-name" class="playerName-input" type="text" placeholder="Enter Player's Name">
+          <input name="player-name" class="input playerName-input" type="text" placeholder="Enter Player's Name">
           <div class="add-player-btn">
             <button id="addPlayer" type="submit" class="button add-player">Add</button>
           </div>
@@ -60,7 +60,7 @@
     </div>
 
   </section>
-  
+
   <script type="text/javascript" src="js/create.js"></script>
 
 </body>
