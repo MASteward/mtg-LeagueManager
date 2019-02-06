@@ -113,7 +113,7 @@ $(document).ready(function() {
     card.addClass("toFront");
   }
 
-  $(".card").on('click', '.footer-btn', function() {
+  $(".card__container").on('click', '.footer-btn', function() {
     let card = $(this).offsetParent();
     let signup = $(".signup-card");
     let login = $(".login-card");
