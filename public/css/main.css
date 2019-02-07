@@ -672,8 +672,10 @@ span.ion-ios-trash.trash-btn:hover {
   transform:translate(-50%,-50%);
   padding-top: 0;
   width: 70%;
+  height: 80%;
   box-shadow: 0 .5rem .8rem 0 rgba(0,0,0,.2), 0 .7rem 2rem 0 rgba(0,0,0,.17);
   background-color: #000;
+  overflow: scroll;
 }
 
 .game_modal .modal__header {
@@ -757,6 +759,7 @@ span.ion-ios-trash.trash-btn:hover {
 
 .game_modal .modal__player-data {
   text-align: left;
+  margin-bottom: .5rem;
 }
 
 .game_modal .modal__commander-select {
@@ -1243,6 +1246,10 @@ span.ion-ios-trash.trash-btn:hover {
 
   .player-list-item:hover .trash-btn {
     color:#000;
+  }
+
+  .player-amount-warning {
+    margin-right: 1.5rem;
   }
 
   .warning-modal {

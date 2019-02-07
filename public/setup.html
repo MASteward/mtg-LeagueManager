@@ -1,133 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="icon" href="images/logos/mtg-logo-M-noBg.png">
-    <link href="https://fonts.googleapis.com/css?family=Expletus+Sans:400,500,700|Montserrat:400,400i,500,500i" rel="stylesheet">
-    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.css">
-    <title>League Manager</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="./images/logos/mtg-logo-M-noBg.png">
+  <link rel="stylesheet" href="css/reset.css" type="text/css">
+  <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Expletus+Sans:400,500,700|Montserrat:400,400i,500,500i" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css" type="text/css">
+  <title>League Manager</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
 
-  <body class="setup_page">
+<body class="setup_page">
 
-    <!-- ============= NAVBAR ============== -->
+  <!-- ============= NAVBAR ============== -->
 
-    <header class="navbar">
-      <div class="navbar__container row between">
-        <div class="navbar__logo">
-          <div class="navbar__image-container">
-            <img src="images/logos/mtg-logo-m-elements.png" width="30" class="d-inline-block" alt="Magic The Gathering Icon">
-          </div>
-          <span class="brand-logo"> League Manager</span>
+  <header class="navbar">
+    <div class="navbar__container row between">
+      <div class="navbar__logo">
+        <div class="navbar__image-container">
+          <img src="images/logos/mtg-logo-m-elements.png" width="30" class="d-inline-block" alt="Magic The Gathering Icon">
         </div>
-        <div class="button navbar__button">
-          <a role="button" class="league-logout button" href="/logout">Logout</a>
-        </div>
+        <span class="brand-logo"> League Manager</span>
       </div>
+      <div class="button navbar__button">
+        <a role="button" class="league-logout button" href="/logout">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============= MAIN BODY ============= -->
+
+  <section class="container">
+    <header class="primary-title league-title">
+      <h1 class="league" id="leagueName"></h1>
     </header>
 
-    <!-- ============= MAIN BODY ============= -->
-
-    <section class="container">
-      <header class="primary-title league-title">
-        <h1 class="league" id="leagueName"></h1>
-      </header>
-
-      <!-- NUMBER OF GAMES AND PLAYER ADDITIONS -->
-      <section class="league_options">
-        <div class="row around gamesAndPlayers">
-          <div class="game_number">
-            <div class="select-games">
-              <label for="gameSelect" class="number-games-label"><h3 class="tertiary-title number-games-title">Number of Games</h3></label>
-            </div>
-            <div class="select-row">
-              <select class="custom-select" id="gameSelect">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-              </select>
-            </div>
+    <!-- NUMBER OF GAMES AND PLAYER ADDITIONS -->
+    <section class="league_options">
+      <div class="row around gamesAndPlayers">
+        <div class="game_number">
+          <div class="select-games">
+            <label for="gameSelect" class="number-games-label">
+              <h3 class="tertiary-title number-games-title">Number of Games</h3>
+            </label>
           </div>
-            <form class="add-player-form" action="index.html" method="post">
-              <label for="player-addition" class="add-player"><h3 class="tertiary-title add-player-title">Add a Player</h3></label>
-
-              <div class="row new-player">
-                <input type="text" name="player-addition" class="input playerName-input" placeholder="Player's Name" aria-label="Player's Name" aria-describedby="basic-addon2">
-                <button id="addPlayer" class="button" type="submit">Add</button>
-              </div>
-            </form>
-        </div>
-      </section>
-
-      <hr class="setup_divider">
-
-
-      <section class="league_data">
-        <div class="row">
-          <h2 class="secondary-title league-title">League Members</h2>
-        </div>
-        <div class="row members_list">
-
-          <div class="col header div-checkbox">
-            <input type='checkbox' id="playingGame" aria-label='Checkbox for the following text input'>
-          </div>
-          <div class="col header header-player member">
-            <h3 class="tertiary-title">Player</h3>
-          </div>
-          <div class="col header header-commander">
-            <h3 class="tertiary-title commander">Commander</h3>
-          </div>
-          <div class="col header header-points">
-            <h3 class="tertiary-title points">Points</h3>
-          </div>
-          <div class="col header trash-can">
-            <button type='button' class='trash-button btn-circle' data-id="+ player.id +"><span class='ion-ios-trash trash-btn'></span></button>
+          <div class="select-row">
+            <select class="custom-select" id="gameSelect">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
           </div>
         </div>
-        <hr class="end_header">
+        <form class="add-player-form" action="index.html" method="post">
+          <label for="player-addition" class="add-player">
+            <h3 class="tertiary-title add-player-title">Add a Player</h3>
+          </label>
 
-        <section class="playerList">
-          <!-- WHERE NEW ROWS SHOULD START -->
-        </section>
-      </section>
-
-      <!-- LIST OF LEAGUE MEMBERS -->
-
-      <div class="row last-row start-game">
-        <div class="player-amount-warning">
-          <p>At least 2 players must be selected to play</p>
-        </div>
-        <button id="startGame" class="button start" type="submit">Start Game</button>
-      </div>
-
-      <!-- MODAL -->
-
-      <div class="modal warning-modal fade" id="delete-modal" role="dialog">
-        <header class="modal-header">
-          <h3>Warning!</h3>
-          <button type="button" name="cancel" class="cancel">x</button>
-        </header>
-        <section class="modal-content">
-          <p>This action <span>cannot</span> be undone.</p>
-          <p>Are you sure you want to delete this player?</p>
-        </section>
-        <footer class="modal-footer">
-          <button type="button" class="cancel button" data-dismiss="modal">Cancel</button>
-          <button type="button" class="delete-player button" data-dismiss="modal">Delete</button>
-        </footer>
+          <div class="row new-player">
+            <input type="text" name="player-addition" class="input playerName-input" placeholder="Player's Name" aria-label="Player's Name" aria-describedby="basic-addon2">
+            <button id="addPlayer" class="button" type="submit">Add</button>
+          </div>
+        </form>
       </div>
     </section>
 
-    <script type="text/javascript" src="js/setup.js"></script>
+    <hr class="setup_divider">
 
-  </body>
+
+    <section class="league_data">
+      <div class="row">
+        <h2 class="secondary-title league-title">League Members</h2>
+      </div>
+      <div class="row members_list">
+
+        <div class="col header div-checkbox">
+          <input type='checkbox' id="playingGame" aria-label='Checkbox for the following text input'>
+        </div>
+        <div class="col header header-player member">
+          <h3 class="tertiary-title">Player</h3>
+        </div>
+        <div class="col header header-commander">
+          <h3 class="tertiary-title commander">Commander</h3>
+        </div>
+        <div class="col header header-points">
+          <h3 class="tertiary-title points">Points</h3>
+        </div>
+        <div class="col header trash-can">
+          <button type='button' class='trash-button btn-circle' data-id="+ player.id +"><span class='ion-ios-trash trash-btn'></span></button>
+        </div>
+      </div>
+      <hr class="end_header">
+
+      <section class="playerList">
+        <!-- WHERE NEW ROWS SHOULD START -->
+      </section>
+    </section>
+
+    <!-- LIST OF LEAGUE MEMBERS -->
+
+    <div class="row last-row start-game">
+      <div class="player-amount-warning">
+        <p>At least 2 players must be selected to play</p>
+      </div>
+      <button id="startGame" class="button start" type="submit">Start Game</button>
+    </div>
+
+    <!-- MODAL -->
+
+    <div class="modal warning-modal fade" id="delete-modal" role="dialog">
+      <header class="modal-header">
+        <h3>Warning!</h3>
+        <button type="button" name="cancel" class="cancel">x</button>
+      </header>
+      <section class="modal-content">
+        <p>This action <span>cannot</span> be undone.</p>
+        <p>Are you sure you want to delete this player?</p>
+      </section>
+      <footer class="modal-footer">
+        <button type="button" class="cancel button" data-dismiss="modal">Cancel</button>
+        <button type="button" class="delete-player button" data-dismiss="modal">Delete</button>
+      </footer>
+    </div>
+  </section>
+
+  <script type="text/javascript" src="js/setup.js"></script>
+
+</body>
 
 </html>

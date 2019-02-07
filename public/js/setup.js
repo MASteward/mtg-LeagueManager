@@ -92,7 +92,6 @@ $(document).ready(function() {
 // ==================== DYNAMIC CHECKBOX ====================
 
   function createCheckbox(row, player) {
-    // var checkbox = $("<div class='col-1 input-group-prepend playerCheck div-checkbox'><input type='checkbox' class='input-checkbox playerCheck' data-id="+ player.id +"></div>");
     var checkbox = $("<div class='col div-checkbox'><input type='checkbox' class='input-checkbox' data-id="+ player.id +"></div>");
     $(row).append(checkbox);
   }

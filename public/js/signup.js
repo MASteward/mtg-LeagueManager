@@ -50,14 +50,17 @@ $(document).ready(function() {
 
   function handleSignupErr(err) {
     if (err == null) {
-      $(".signup-msg").html("User already exist");
+      // $(".signup-msg").html("User already exist");
     }
     $("#signup-alert").fadeIn(500);
   }
 
   function handleLoginErr(err) {
-    $("#login-alert .login-msg").text(err.responseJSON);
-    $("#alert").fadeIn(500);
+    if (err != null) {
+      console.log(err);
+      // $("#login-alert .login-msg").html(err);
+      $("#login-alert").fadeIn(500);
+    }
   };
 
   // ================== LOGIN =====================
@@ -95,16 +98,13 @@ $(document).ready(function() {
         localStorage.setItem("mtgCommanders", JSON.stringify(results));
         window.location.replace(page);
       });
-      // window.location.replace(data);
       // If there's an error, log the error
     }).catch(handleLoginErr)
-    // .catch(function(err) {
-    //   console.log("Please Check Email and Password");
-    // });
   }
 
   function front2back(card) {
     card.removeClass("toFront");
+    $(".alert").css("display","none");
     card.addClass("toBack");
   }
 

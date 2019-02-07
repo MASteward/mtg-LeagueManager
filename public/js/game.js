@@ -122,9 +122,9 @@ $(document).ready(function() {
 
   function createCard(forPlayer) {
     if (forPlayer) {
-      return $("<div class='card__col user commanderCard card w3-hover-shadow' data-toggle='modal' data-target='#mtgModal'>");
+      return $("<div class='card__col user commanderCard card' data-toggle='modal' data-target='#mtgModal'>");
     } else {
-      return $("<div class='card__col user suppCard card w3-hover-shadow' data-toggle='modal' data-target='#mtgModal'>");
+      return $("<div class='card__col user suppCard card' data-toggle='modal' data-target='#mtgModal'>");
     }
   }
 
@@ -145,7 +145,7 @@ $(document).ready(function() {
 //============================= CREATE CARD BODY ===============================
 
   function createBody(card, cardData) {
-    var body = $("<div class='card-body userName w3-black'>"+ cardData.playerName +"</div>");
+    var body = $("<div class='card-body userName'>"+ cardData.playerName +"</div>");
     card.append(body);
     return card;
   }
@@ -280,7 +280,7 @@ $(document).ready(function() {
   function commandersList(row, player, id) {
     var commContainer = $("<div class='modal_col modal__commander'>");
     var currentCommander = player.commander;
-    var selector = $("<select class=' modal__commander-select' data-commander="+ id +" name='selector'>");
+    var selector = $("<select class='custom-select modal__commander-select' data-commander="+ id +" name='selector'>");
     $.each(magicCommanders, function(index, leader) {
       if (index == 0) {
         selector.append("<option class='option' value="+ currentCommander +">"+ magicCommanders[currentCommander].name +"</option>");
