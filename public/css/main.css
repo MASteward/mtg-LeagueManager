@@ -965,6 +965,7 @@ span.ion-ios-trash.trash-btn:hover {
 
   #startGame {
     width:100%;
+    margin-right: 0;
   }
 
   .primary-title {
