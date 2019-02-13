@@ -497,12 +497,6 @@ span.ion-ios-trash.trash-btn:hover {
   font-weight: bold;
 }
 
-
-/* .start-game {
-  justify-content: flex-end;
-  margin-top:2.5rem;
-} */
-
 .start-game button {
   background-image: radial-gradient(#fcb62a, #f36a26, #ef2d28);
   border: 1px solid #000;
@@ -622,6 +616,7 @@ span.ion-ios-trash.trash-btn:hover {
 .card {
   position: relative;
   display: flex;
+  flex-direction: column;
   max-width: 18%;
   width:100%;
   align-items: center;
@@ -692,12 +687,6 @@ span.ion-ios-trash.trash-btn:hover {
   text-align: center;
 }
 
-/* .game_modal .modal__header .button {
-  background: transparent;
-  border: none;
-  font-size: 3rem;
-} */
-
 .game_modal .modal-body {
   padding:2rem;
   background-color: #fff;
@@ -755,6 +744,10 @@ span.ion-ios-trash.trash-btn:hover {
 .game_modal .modal__table-players {
   margin: 0 .5rem;
   color: #000;
+}
+
+.game_modal .modal_col {
+  width:33.33333%;
 }
 
 .game_modal .modal__player-data {
@@ -1010,9 +1003,6 @@ span.ion-ios-trash.trash-btn:hover {
   .game_modal .table-content {
     width: 100%;
   }
-  .game_modal .modal_col {
-    width:33.33333%;
-  }
 
   .card {
     flex-direction: column;
@@ -1036,26 +1026,6 @@ span.ion-ios-trash.trash-btn:hover {
 
 }
 
-@media screen and (min-width: 576px) {
-
-  /* ====================================== */
-                /* ACCESS PAGE */
-  /* ====================================== */
-
-  /* ====================================== */
-                /* CREATE PAGE */
-  /* ====================================== */
-
-  /* ====================================== */
-                /* SETUP PAGE */
-  /* ====================================== */
-
-  /* ====================================== */
-                /* GAME PAGE */
-  /* ====================================== */
-
-}
-
 @media screen and (min-width: 576px) and (max-width: 991.98px) {
 
   /* ====================================== */
@@ -1068,7 +1038,7 @@ span.ion-ios-trash.trash-btn:hover {
     height:100%;
   }
 
-  .access__card {
+  .access-card {
     transform-style: preserve-3d;
     width:26rem;
     height:30rem;
@@ -1103,64 +1073,43 @@ span.ion-ios-trash.trash-btn:hover {
   .middle {
     display: none;
   }
-}
-
-@media screen and (min-width: 768px) {
-
-  /* ====================================== */
-                /* ACCESS PAGE */
-  /* ====================================== */
-
-  /* ====================================== */
-                /* CREATE PAGE */
-  /* ====================================== */
-
-  /* ====================================== */
-                /* SETUP PAGE */
-  /* ====================================== */
 
   /* ====================================== */
                 /* GAME PAGE */
   /* ====================================== */
+  .userName {
+    background-color: rgba(255,255,255,.85);
+    font-size: 1.3rem;
+    text-align: center;
+    width: 100%;
+    color: #000;
+  }
+
+  .game_modal .modal-content {
+    height: 95%;
+  }
+
   .game_modal .modal-dialog {
     max-width: 720px;
+  }
+
+  .game_modal .modal__title .secondary-title {
+    font-size: 3.5rem;
+  }
+
+  .game_modal .modal-card-image {
+    max-width: 50%;
+  }
+
+  .game-footer {
+    padding: 0 1.5rem 1.5rem;
+    justify-content: flex-end;
   }
 }
 
 
 @media screen and (min-width: 992px) {
-
-  /* ====================================== */
-                /* ACCESS PAGE */
-  /* ====================================== */
-
-  /* ====================================== */
-                /* CREATE PAGE */
-  /* ====================================== */
-
-  .player {
-    font-size: 1.45em;
-  }
-
-  .player-input {
-    padding-right: 0;
-  }
-
-  .add-player-btn {
-    text-align: right;
-  }
-
-  /* ====================================== */
-                /* SETUP PAGE */
-  /* ====================================== */
-
-  /* ====================================== */
-                /* GAME PAGE */
-  /* ====================================== */
-
-}
-
-@media screen and (min-width: 1440px) {
+/* @media screen and (min-width: 1440px) { */
 
   .last-row {
     margin-top: 5rem;
@@ -1208,6 +1157,19 @@ span.ion-ios-trash.trash-btn:hover {
   /* ====================================== */
                 /* CREATE PAGE */
   /* ====================================== */
+
+  .player {
+    font-size: 1.45em;
+  }
+
+  .player-input {
+    padding-right: 0;
+  }
+
+  .add-player-btn {
+    text-align: right;
+  }
+
 
   /* ====================================== */
               /* SETUP PAGE */
@@ -1269,8 +1231,8 @@ span.ion-ios-trash.trash-btn:hover {
     width:50%;
   }
 
-  .game_modal .modal_col {
-    width:33.33333%;
+  .card {
+    flex-direction: row;
   }
 
   .card:hover {
